@@ -77,6 +77,32 @@
   <div class="orb orb3"></div>
   <div class="orb orb4"></div>
 </div>
+<!-- Subtle Glass Reflection Overlay -->
+<div class="glass-reflection" aria-hidden="true"></div>
+
+<style>
+.glass-reflection {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 70%),
+              linear-gradient(120deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  backdrop-filter: blur(24px) saturate(120%);
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.4;
+  animation: shimmer 12s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; opacity: 0.35; }
+  50% { background-position: 100% 50%; opacity: 0.5; }
+  100% { background-position: 50% 100%; opacity: 0.4; }
+}
+
+@media(max-width: 600px){
+  .glass-reflection { backdrop-filter: blur(14px); opacity: 0.3; }
+}
+</style>
 
 <style>
 .orb-bg {
