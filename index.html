@@ -2,203 +2,501 @@
 <html lang="hi">
 <head>
   <meta charset="utf-8" />
-  <meta name="monetag" content="599a65d347cd61e1720165d9606a4605">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Goyal's Tools — Free Utilities</title>
-  <meta name="description" content="Automate your small tasks easily — by Goyal's" />
+  <title>Goyal's Tools — Free Online Utilities to Automate Small Tasks</title>
+  <meta name="description" content="Goyal's Tools — Free online utilities to automate small tasks: text tools, image tools, converters and more. Fast, privacy-first, and lightweight.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Goyal's Tools — Free Online Utilities">
+  <meta property="og:description" content="Automate your small tasks easily — text converters, image tools, PDF generator, URL encoder and more.">
+  <meta property="og:url" content="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/">
+  <meta property="og:site_name" content="Goyal's Tools">
+  <meta property="og:image" content="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/og-image.png">
+  <meta property="og:image:alt" content="Goyal's Tools — Automate your small tasks easily">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f1724">
 
-  <style>
-    :root{--accent:#60a5fa;--bg-dark:#0f1724;--card-dark:#0b1220;--muted-dark:#9aa4b2;--text-dark:#e6eef6}
-    [data-theme='light']{--bg-dark:#f7fafc;--card-dark:#ffffff;--muted-dark:#475569;--accent:#2563eb;--text-dark:#0b1220}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:var(--bg-dark);color:var(--text-dark);-webkit-font-smoothing:antialiased}
-
-    /* gradient background */
-    .gradient-bg{position:fixed;inset:0;z-index:-3;background:linear-gradient(120deg,#06b6d4,#7c3aed,#60a5fa,#0ea5a6);background-size:400% 400%;filter:blur(36px) saturate(120%);opacity:0.72;animation:gradientMove 18s ease infinite}
-    @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-
-    header{position:relative;z-index:5;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .brand{font-weight:700;font-size:20px}
-    .sub{color:var(--muted-dark);font-size:13px;margin-top:4px}
-    .controls{display:flex;gap:12px;align-items:center}
-    select{padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:inherit}
-
-    main{max-width:1100px;margin:10px auto;padding:18px}
-
-    /* card */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 8px 30px rgba(2,6,23,0.06);transition:0.2s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(2,6,23,0.16)}
-
-    textarea,input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
-    button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:#042235;font-weight:700;cursor:pointer}
-    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted-dark)}
-
-    .result{margin-top:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted-dark)}
-
-  </style>
-</head>
-
-<body>
-  <!-- POPUNDER (must be at top inside <body>) -->
-  <script type='text/javascript' src='//pl28043417.effectivegatecpm.com/e2/31/a8/e231a8bf26114a7cef07b837dc57e7ae.js'></script>
-
-  <!-- Animated Background -->
-  <div class="gradient-bg"></div>
-
-  <header>
-    <div>
-      <div class="brand">Goyal's Tools</div>
-      <div class="sub">Automate your small tasks easily — by Goyal’s</div>
-    </div>
-    <div class="controls">
-      <div>
-        <label class="sub">Theme</label>
-        <select id="theme-switch">
-          <option value="auto">Auto</option>
-          <option value="dark">Dark</option>
-          <option value="light">Light</option>
-        </select>
-      </div>
-      <div>
-        <label class="sub">Animation</label>
-        <select id="anim-switch">
-          <option value="on">ON</option>
-          <option value="off">OFF</option>
-        </select>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="grid">
-
-      <!-- TEXT CASE -->
-      <section class="card">
-        <h3>Text Case Converter</h3>
-        <textarea id="case-input" rows="5" placeholder="यहाँ text डालें..."></textarea>
-        <div class="row">
-          <button id="to-upper">UPPERCASE</button>
-          <button id="to-lower" class="mutebtn">lowercase</button>
-          <button id="to-title" class="mutebtn">Title Case</button>
-          <button id="case-copy" class="mutebtn">Copy</button>
-        </div>
-        <div class="result" id="case-result">Result...</div>
-      </section>
-
-      <!-- WORD COUNTER -->
-      <section class="card">
-        <h3>Word & Character Counter</h3>
-        <textarea id="count-input" rows="5"></textarea>
-        <div class="row">
-          <button id="count-btn">Count</button>
-          <button id="count-clear" class="mutebtn">Clear</button>
-        </div>
-        <div class="result" id="count-result">Words: 0 — Characters: 0</div>
-      </section>
-
-      <!-- BASE64 -->
-      <section class="card">
-        <h3>Base64 Encode / Decode</h3>
-        <textarea id="b64-input" rows="4"></textarea>
-        <div class="row">
-          <button id="b64-enc">Encode</button>
-          <button id="b64-dec" class="mutebtn">Decode</button>
-        </div>
-        <div class="result" id="b64-result">Output...</div>
-      </section>
-
-      <!-- IMAGE to BASE64 -->
-      <section class="card">
-        <h3>Image to Base64</h3>
-        <input type="file" id="img-input" accept="image/*">
-        <div class="row"><button id="img-convert">Convert</button></div>
-        <div class="result" id="img-result">Base64 result...</div>
-      </section>
-
-      <!-- PDF -->
-      <section class="card">
-        <h3>Text to PDF</h3>
-        <textarea id="pdf-input" rows="5"></textarea>
-        <div class="row"><button id="pdf-download">Download PDF</button></div>
-      </section>
-
-      <!-- URL Encode -->
-      <section class="card">
-        <h3>URL Encoder / Decoder</h3>
-        <textarea id="url-input" rows="4"></textarea>
-        <div class="row">
-          <button id="url-enc">Encode</button>
-          <button id="url-dec" class="mutebtn">Decode</button>
-        </div>
-        <div class="result" id="url-result">Result...</div>
-      </section>
-
-      <!-- YOUTUBE -->
-      <section class="card">
-        <h3>YouTube Video Info Fetcher</h3>
-        <input type="text" id="yt-link" placeholder="YouTube video link डालें">
-        <div class="row"><button id="yt-fetch">Fetch Info</button></div>
-        <div class="result" id="yt-result">Video details...</div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- ⭐ NATIVE BANNER (Below Tools — correct place) -->
-  <div style="max-width:800px;margin:20px auto;">
-    <script async="async" data-cfasync="false" src="//pl28043433.effectivegatecpm.com/83774cc2e9e990d38d91b3148c45a4f5/invoke.js"></script>
-    <div id="container-83774cc2e9e990d38d91b3148c45a4f5"></div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer-bar">
-    <div class="footer-left">👀 Visitors: <span id="visit-count">0</span></div>
-    <div class="footer-right">Made with ❤️ by Goyal's</div>
-  </div>
-
-  <!-- BACK TO TOP -->
-  <div class="back-top" id="backTop"><div class="icon">↑</div></div>
-
-  <!-- POPUP -->
-  <div id="welcome-popup" style="display:none;">
-    <div class="popup-box">
-      <h2>👋 Welcome!</h2>
-      <p>Welcome to <b>Goyal's Tools</b></p>
-      <button id="close-popup">Got it</button>
-    </div>
-  </div>
-
-  <!-- LOGIC + VISITOR COUNTER + ADS -->
-  <script>
-
-    /* NEW VISITOR COUNTER (works on GitHub Pages 100%) */
-    let counter = parseInt(localStorage.getItem("visit-counter") || "0");
-    counter++;
-    localStorage.setItem("visit-counter", counter);
-    document.getElementById("visit-count").textContent = counter;
-
-    /* POPUP LOGIC */
-    const popup = document.getElementById("welcome-popup");
-    if (!localStorage.getItem("visited")){
-      popup.style.display = "flex";
-      document.getElementById("close-popup").onclick = () => {
-        popup.style.display = "none";
-        localStorage.setItem("visited", "true");
-      };
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Goyal's Tools",
+    "url":"https://deveshgoyal2070-pixel.github.io/Goyals-Tools/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://deveshgoyal2070-pixel.github.io/Goyals-Tools/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
     }
-
-    /* BACK TO TOP */
-    const backTop = document.getElementById("backTop");
-    window.addEventListener("scroll", () => {
-      backTop.classList.toggle("show", window.scrollY > 200);
-    });
-    backTop.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
-
+  }
   </script>
 
-  <!-- ⭐ SOCIAL BAR (must be just before </body>) -->
-  <script type='text/javascript' src='//pl28043438.effectivegatecpm.com/5b/27/6d/5b276dbb8048733bb01279cbb297f060.js'></script>
+  <style>
+    :root{--accent:#60a5fa;--bg:#0f1724;--card:rgba(255,255,255,0.03);--muted:#9aa4b2;--text:#e6eef6}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:18px auto;padding:20px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .brand{font-weight:800;font-size:20px}
+    .sub{color:var(--muted);font-size:13px}
+    .controls select{padding:8px;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    h3{margin:0 0 8px;font-size:16px}
+    textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:#042235;font-weight:700;cursor:pointer}
+    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    .result{margin-top:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:14px}
+    .tools-wrap{margin-bottom:20px}
+    /* responsive */
+    @media(max-width:720px){.wrap{padding:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="brand">Goyal's Tools</div>
+        <div class="sub">Automate your small tasks easily — by Goyal’s</div>
+      </div>
+      <div class="controls">
+        <select id="theme-switch"><option value="auto">Auto</option><option value="dark">Dark</option><option value="light">Light</option></select>
+      </div>
+    </header>
+
+    <main class="tools-wrap">
+      <div class="grid">
+
+        <!-- 1 Text Reverser -->
+        <section class="card">
+          <h3>Text Reverser</h3>
+          <textarea id="txt-rev-in" rows="4" placeholder="Type or paste text..."></textarea>
+          <div class="row">
+            <button onclick="document.getElementById('txt-rev-out').value = reverseText(document.getElementById('txt-rev-in').value)">Reverse</button>
+            <button class="mutebtn" onclick="document.getElementById('txt-rev-in').value='';document.getElementById('txt-rev-out').value=''">Clear</button>
+          </div>
+          <textarea id="txt-rev-out" rows="3" readonly placeholder="Result..."></textarea>
+        </section>
+
+        <!-- 2 Remove Duplicate Lines -->
+        <section class="card">
+          <h3>Remove Duplicate Lines</h3>
+          <textarea id="dup-in" rows="4"></textarea>
+          <div class="row">
+            <button onclick="document.getElementById('dup-out').value = removeDupLines(document.getElementById('dup-in').value)">Remove Duplicates</button>
+            <button class="mutebtn" onclick="document.getElementById('dup-in').value='';document.getElementById('dup-out').value=''">Clear</button>
+          </div>
+          <textarea id="dup-out" rows="3" readonly></textarea>
+        </section>
+
+        <!-- 3 Word Density -->
+        <section class="card">
+          <h3>Word Density</h3>
+          <textarea id="density-in" rows="4"></textarea>
+          <div class="row">
+            <button onclick="document.getElementById('density-out').value = wordDensity(document.getElementById('density-in').value)">Analyze</button>
+            <button class="mutebtn" onclick="document.getElementById('density-in').value='';document.getElementById('density-out').value=''">Clear</button>
+          </div>
+          <textarea id="density-out" rows="5" readonly class="small"></textarea>
+        </section>
+
+        <!-- 4 Random Password -->
+        <section class="card">
+          <h3>Random Password Generator</h3>
+          <div class="row">
+            <input id="pwd-len" type="number" min="4" max="64" value="16" style="width:120px">
+            <select id="pwd-chars"><option value="all">Letters + Numbers + Symbols</option><option value="alnum">Letters + Numbers</option><option value="alpha">Letters only</option></select>
+          </div>
+          <div class="row" style="margin-top:10px">
+            <button onclick="document.getElementById('pwd-out').value = genPassword()">Generate</button>
+            <button class="mutebtn" onclick="document.getElementById('pwd-out').value=''">Clear</button>
+          </div>
+          <textarea id="pwd-out" rows="2" readonly></textarea>
+        </section>
+
+        <!-- 5 Random Number -->
+        <section class="card">
+          <h3>Random Number</h3>
+          <div class="row">
+            <input id="rand-min" type="number" value="1" style="width:120px">
+            <input id="rand-max" type="number" value="100" style="width:120px">
+            <button onclick="document.getElementById('rand-out').value = randNumber()">Pick</button>
+          </div>
+          <input id="rand-out" readonly style="margin-top:10px">
+        </section>
+
+        <!-- 6 Lorem Ipsum -->
+        <section class="card">
+          <h3>Lorem Ipsum Generator</h3>
+          <div class="row"><input id="lorem-para" type="number" value="2" min="1" max="10" style="width:120px"><button onclick="document.getElementById('lorem-out').value = genLorem(parseInt(document.getElementById('lorem-para').value))">Generate</button></div>
+          <textarea id="lorem-out" rows="4" readonly></textarea>
+        </section>
+
+        <!-- 7 JSON Formatter -->
+        <section class="card">
+          <h3>JSON Formatter / Validator</h3>
+          <textarea id="json-in" rows="5" placeholder='Paste JSON here'></textarea>
+          <div class="row">
+            <button onclick="formatJSON()">Format / Validate</button>
+            <button class="mutebtn" onclick="document.getElementById('json-in').value='';document.getElementById('json-out').value=''">Clear</button>
+          </div>
+          <textarea id="json-out" rows="4" readonly></textarea>
+        </section>
+
+        <!-- 8 HTML Encoder / Decoder -->
+        <section class="card">
+          <h3>HTML Encode / Decode</h3>
+          <textarea id="html-in" rows="4"></textarea>
+          <div class="row">
+            <button onclick="document.getElementById('html-out').value = encodeHTML(document.getElementById('html-in').value)">Encode</button>
+            <button class="mutebtn" onclick="document.getElementById('html-out').value = decodeHTML(document.getElementById('html-in').value)">Decode</button>
+          </div>
+          <textarea id="html-out" rows="3" readonly></textarea>
+        </section>
+
+        <!-- 9 CSS Minifier -->
+        <section class="card">
+          <h3>CSS Minifier (basic)</h3>
+          <textarea id="css-in" rows="4"></textarea>
+          <div class="row">
+            <button onclick="document.getElementById('css-out').value = minifyCSS(document.getElementById('css-in').value)">Minify</button>
+            <button class="mutebtn" onclick="document.getElementById('css-in').value='';document.getElementById('css-out').value=''">Clear</button>
+          </div>
+          <textarea id="css-out" rows="3" readonly></textarea>
+        </section>
+
+        <!-- 10 JS Minifier (basic) -->
+        <section class="card">
+          <h3>JS Minifier (basic)</h3>
+          <textarea id="js-in" rows="4"></textarea>
+          <div class="row"><button onclick="document.getElementById('js-out').value = minifyJS(document.getElementById('js-in').value)">Minify</button></div>
+          <textarea id="js-out" rows="3" readonly></textarea>
+        </section>
+
+        <!-- 11 JPG→PNG (client-side) -->
+        <section class="card">
+          <h3>JPG → PNG Converter</h3>
+          <input type="file" id="jpg-file" accept="image/jpeg,image/jpg">
+          <div class="row"><button onclick="convertToPNG()">Convert</button></div>
+          <div class="result small" id="jpg-png-out"></div>
+        </section>
+
+        <!-- 12 PNG→JPG -->
+        <section class="card">
+          <h3>PNG → JPG Converter</h3>
+          <input type="file" id="png-file" accept="image/png">
+          <div class="row"><button onclick="convertToJPG()">Convert</button></div>
+          <div class="result small" id="png-jpg-out"></div>
+        </section>
+
+        <!-- 13 Image Compressor (basic quality reduce) -->
+        <section class="card">
+          <h3>Image Compressor</h3>
+          <input type="file" id="compress-file" accept="image/*">
+          <div class="row"><input id="compress-quality" type="range" min="10" max="100" value="70"><button onclick="compressImage()">Compress</button></div>
+          <div class="result small" id="compress-out"></div>
+        </section>
+
+        <!-- 14 Image Resizer -->
+        <section class="card">
+          <h3>Image Resizer</h3>
+          <input type="file" id="resize-file" accept="image/*">
+          <div class="row"><input id="resize-w" type="number" placeholder="width" style="width:110px"><input id="resize-h" type="number" placeholder="height" style="width:110px"><button onclick="resizeImage()">Resize</button></div>
+          <div class="result small" id="resize-out"></div>
+        </section>
+
+        <!-- 15 Color Picker -->
+        <section class="card">
+          <h3>Color Picker</h3>
+          <input type="color" id="color-picker" value="#60a5fa">
+          <div class="row"><input id="color-hex" readonly style="width:120px"><button onclick="copyColor()">Copy</button></div>
+        </section>
+
+        <!-- 16 File Size Converter -->
+        <section class="card">
+          <h3>File Size Converter</h3>
+          <div class="row"><input id="size-in" type="number" placeholder="Size" style="width:140px"><select id="size-unit"><option value="bytes">Bytes</option><option value="kb">KB</option><option value="mb">MB</option><option value="gb">GB</option></select></div>
+          <div class="row" style="margin-top:8px"><button onclick="convertSize()">Convert</button></div>
+          <div class="result small" id="size-out"></div>
+        </section>
+
+        <!-- 17 Age Calculator -->
+        <section class="card">
+          <h3>Age Calculator</h3>
+          <input type="date" id="dob">
+          <div class="row"><button onclick="calculateAge()">Calculate</button></div>
+          <div class="result small" id="age-out"></div>
+        </section>
+
+        <!-- 18 Percentage Calculator -->
+        <section class="card">
+          <h3>Percentage Calculator</h3>
+          <div class="row"><input id="perc-val" type="number" placeholder="Value" style="width:120px"><input id="perc-of" type="number" placeholder="of" style="width:120px"></div>
+          <div class="row" style="margin-top:8px"><button onclick="calcPercentage()">Calc</button></div>
+          <div class="result small" id="perc-out"></div>
+        </section>
+
+        <!-- 19 Epoch Timestamp Converter -->
+        <section class="card">
+          <h3>Epoch ↔ Date</h3>
+          <input type="text" id="epoch-in" placeholder="epoch seconds or date string">
+          <div class="row"><button onclick="epochToDate()">Epoch → Date</button><button class="mutebtn" onclick="dateToEpoch()">Date → Epoch</button></div>
+          <div class="result small" id="epoch-out"></div>
+        </section>
+
+        <!-- 20 QR Code Generator (Google Chart API) -->
+        <section class="card">
+          <h3>QR Code Generator</h3>
+          <input type="text" id="qr-text" placeholder="Text or URL">
+          <div class="row"><input type="number" id="qr-size" value="200" style="width:120px"><button onclick="genQR()">Generate</button></div>
+          <div class="result small" id="qr-out"></div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="small">© 2025 Goyal's Tools — Automate your small tasks easily — by Goyal’s</div>
+    </footer>
+  </div>
+
+  <!-- Ad placeholders (your Adsterra codes already in your site) -->
+  <!-- Native banner and social bar are left as-is; keep them in your file where you previously set them. -->
+
+  <script>
+  /* ----------------- Utilities & Tools JS ----------------- */
+
+  // 1 Text reverse
+  function reverseText(s){ return s.split('').reverse().join(''); }
+
+  // 2 Remove duplicate lines
+  function removeDupLines(s){
+    const lines = s.split(/\r?\n/).filter(Boolean);
+    const seen = new Set(); const out = [];
+    for(const l of lines){ if(!seen.has(l)){ seen.add(l); out.push(l); } }
+    return out.join('\n');
+  }
+
+  // 3 Word density
+  function wordDensity(text){
+    const words = (text||'').toLowerCase().match(/\b[\w']+\b/g) || [];
+    const counts = {};
+    words.forEach(w=>counts[w]= (counts[w]||0)+1);
+    const entries = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    return entries.slice(0,30).map(e=>e[0] + ': ' + e[1]).join('\n') + '\n\nWords: ' + words.length;
+  }
+
+  // 4 Password generator
+  function genPassword(){
+    const len = parseInt(document.getElementById('pwd-len').value||16);
+    const mode = document.getElementById('pwd-chars').value;
+    const sets = {
+      all: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{};:,.<>/?",
+      alnum: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      alpha: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    };
+    const chars = sets[mode] || sets.all;
+    let out = '';
+    for(let i=0;i<len;i++) out += chars.charAt(Math.floor(Math.random()*chars.length));
+    return out;
+  }
+
+  // 5 Random number
+  function randNumber(){
+    const a = Number(document.getElementById('rand-min').value||0);
+    const b = Number(document.getElementById('rand-max').value||100);
+    if(b < a) return 'Max must be >= Min';
+    return Math.floor(Math.random()*(b-a+1))+a;
+  }
+
+  // 6 Lorem
+  function genLorem(paras){
+    const p = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."];
+    let out = [];
+    for(let i=0;i<paras;i++) out.push(p[i%p.length]);
+    return out.join('\n\n');
+  }
+
+  // 7 JSON format
+  function formatJSON(){
+    const src = document.getElementById('json-in').value;
+    try{
+      const obj = JSON.parse(src);
+      document.getElementById('json-out').value = JSON.stringify(obj,null,2);
+    } catch(e){
+      document.getElementById('json-out').value = 'Invalid JSON: ' + e.message;
+    }
+  }
+
+  // 8 HTML encode/decode
+  function encodeHTML(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function decodeHTML(s){
+    return s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
+  }
+
+  // 9 CSS minify (basic)
+  function minifyCSS(s){
+    return s.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\s+/g,' ').replace(/\s*([{}:;,])\s*/g,'$1').trim();
+  }
+
+  // 10 JS minify (very basic)
+  function minifyJS(s){
+    return s.replace(/\/\/.*$/gm,'').replace(/\/\*[\s\S]*?\*\//g,'').replace(/\s+/g,' ').trim();
+  }
+
+  /* ---------------- Image tools using canvas ---------------- */
+
+  function loadImageFile(file, callback){
+    const fr = new FileReader();
+    fr.onload = function(e){
+      const img = new Image();
+      img.onload = ()=>callback(img);
+      img.src = e.target.result;
+    };
+    fr.readAsDataURL(file);
+  }
+
+  // JPG -> PNG
+  function convertToPNG(){
+    const f = document.getElementById('jpg-file').files[0];
+    if(!f) return alert('Please choose a JPG file');
+    loadImageFile(f, img=>{
+      const c = document.createElement('canvas');
+      c.width = img.width; c.height = img.height;
+      const ctx = c.getContext('2d'); ctx.drawImage(img,0,0);
+      c.toBlob(blob=>{
+        const url = URL.createObjectURL(blob);
+        document.getElementById('jpg-png-out').innerHTML = `<a href="${url}" download="converted.png">Download PNG</a>`;
+      }, 'image/png');
+    });
+  }
+
+  // PNG -> JPG
+  function convertToJPG(){
+    const f = document.getElementById('png-file').files[0];
+    if(!f) return alert('Please choose a PNG file');
+    loadImageFile(f, img=>{
+      const c = document.createElement('canvas');
+      c.width = img.width; c.height = img.height;
+      const ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0,0,c.width,c.height); ctx.drawImage(img,0,0);
+      c.toBlob(blob=>{
+        const url = URL.createObjectURL(blob);
+        document.getElementById('png-jpg-out').innerHTML = `<a href="${url}" download="converted.jpg">Download JPG</a>`;
+      }, 'image/jpeg', 0.92);
+    });
+  }
+
+  // Compress
+  function compressImage(){
+    const f = document.getElementById('compress-file').files[0];
+    if(!f) return alert('Choose image');
+    const q = (document.getElementById('compress-quality').value||70)/100;
+    loadImageFile(f, img=>{
+      const c = document.createElement('canvas'); c.width=img.width; c.height=img.height;
+      const ctx = c.getContext('2d'); ctx.drawImage(img,0,0);
+      c.toBlob(blob=> {
+        const url = URL.createObjectURL(blob);
+        document.getElementById('compress-out').innerHTML = `<a href="${url}" download="compressed.jpg">Download compressed</a>`;
+      }, 'image/jpeg', q);
+    });
+  }
+
+  // Resize
+  function resizeImage(){
+    const f = document.getElementById('resize-file').files[0];
+    if(!f) return alert('Choose image');
+    const w = parseInt(document.getElementById('resize-w').value) || null;
+    const h = parseInt(document.getElementById('resize-h').value) || null;
+    loadImageFile(f, img=>{
+      const cw = w || img.width, ch = h || img.height;
+      const c = document.createElement('canvas'); c.width=cw; c.height=ch;
+      const ctx = c.getContext('2d'); ctx.drawImage(img,0,0,cw,ch);
+      c.toBlob(blob=> {
+        const url = URL.createObjectURL(blob);
+        document.getElementById('resize-out').innerHTML = `<a href="${url}" download="resized.jpg">Download resized</a>`;
+      }, 'image/jpeg', 0.92);
+    });
+  }
+
+  // 15 Color picker
+  document.getElementById('color-picker').addEventListener('input', ()=> document.getElementById('color-hex').value = document.getElementById('color-picker').value);
+  function copyColor(){ navigator.clipboard.writeText(document.getElementById('color-hex').value || ''); alert('Copied'); }
+
+  // 16 File size converter
+  function convertSize(){
+    const v = Number(document.getElementById('size-in').value || 0);
+    const u = document.getElementById('size-unit').value;
+    let bytes = v;
+    if(u==='kb') bytes = v*1024;
+    if(u==='mb') bytes = v*1024*1024;
+    if(u==='gb') bytes = v*1024*1024*1024;
+    const out = {
+      Bytes: bytes,
+      KB: (bytes/1024).toFixed(2),
+      MB: (bytes/1024/1024).toFixed(2),
+      GB: (bytes/1024/1024/1024).toFixed(4)
+    };
+    document.getElementById('size-out').textContent = `Bytes: ${out.Bytes} — KB: ${out.KB} — MB: ${out.MB} — GB: ${out.GB}`;
+  }
+
+  // 17 Age calculator
+  function calculateAge(){
+    const d = document.getElementById('dob').value; if(!d) return alert('Choose DOB');
+    const dob = new Date(d); const diff = Date.now() - dob.getTime(); const ageDt = new Date(diff);
+    const years = Math.abs(ageDt.getUTCFullYear() - 1970);
+    document.getElementById('age-out').textContent = years + ' years';
+  }
+
+  // 18 Percentage
+  function calcPercentage(){
+    const val = Number(document.getElementById('perc-val').value||0), of = Number(document.getElementById('perc-of').value||0);
+    if(isNaN(val) || isNaN(of)) return alert('Enter numbers');
+    const res = (val/100)*of;
+    document.getElementById('perc-out').textContent = res;
+  }
+
+  // 19 Epoch converter
+  function epochToDate(){
+    const v = document.getElementById('epoch-in').value;
+    const t = Number(v);
+    if(!isNaN(t)){ document.getElementById('epoch-out').textContent = new Date(t*1000).toString(); return; }
+    try{ const dt = new Date(v); document.getElementById('epoch-out').textContent = Math.floor(dt.getTime()/1000); }catch(e){ document.getElementById('epoch-out').textContent = 'Invalid'; }
+  }
+  function dateToEpoch(){
+    const v = document.getElementById('epoch-in').value;
+    const dt = new Date(v);
+    if(isNaN(dt)) { document.getElementById('epoch-out').textContent = 'Invalid date'; } else { document.getElementById('epoch-out').textContent = Math.floor(dt.getTime()/1000); }
+  }
+
+  // 20 QR generator using Google Chart API
+  function genQR(){
+    const t = encodeURIComponent(document.getElementById('qr-text').value || '');
+    const s = document.getElementById('qr-size').value || 200;
+    if(!t) return alert('Enter text or URL');
+    const src = `https://chart.googleapis.com/chart?cht=qr&chs=${s}x${s}&chl=${t}`;
+    document.getElementById('qr-out').innerHTML = `<img src="${src}" alt="QR code"><div style="margin-top:6px"><a href="${src}" download="qr.png">Download QR</a></div>`;
+  }
+
+  /* Small helper for theme */
+  document.getElementById('theme-switch').addEventListener('change', function(){
+    const v = this.value;
+    if(v==='dark'){ document.documentElement.style.background='#071428'; }
+    else if(v==='light'){ document.documentElement.style.background='#f7fafc'; document.body.style.color='#042235'; }
+    else { document.documentElement.style.background=''; document.body.style.color=''; }
+  });
+
+  /* Accessibility small helpers */
+  function removeExtraSpaces(s){ return s.replace(/\s+/g,' ').trim(); }
+
+  /* Init: fill some fields default */
+  document.getElementById('color-hex').value = document.getElementById('color-picker').value;
+
+  </script>
 
 </body>
 </html>
