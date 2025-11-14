@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deveshgoyal2070-pixel.github.io/Goyals-Tools/sitemap.xml
+Host: https://deveshgoyal2070-pixel.github.io
