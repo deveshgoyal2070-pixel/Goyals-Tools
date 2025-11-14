@@ -2,20 +2,19 @@
 <html lang="hi">
 <head>
   <meta charset="utf-8" />
-<meta name="monetag" content="599a65d347cd61e1720165d9606a4605">
-  <!-- propellerads-site-verification: 599a65d347cd61e1720165d9606a4605 -->
+  <meta name="monetag" content="599a65d347cd61e1720165d9606a4605">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Goyal's Tools — Free Utilities</title>
   <meta name="description" content="Automate your small tasks easily — by Goyal's" />
+
   <style>
     :root{--accent:#60a5fa;--bg-dark:#0f1724;--card-dark:#0b1220;--muted-dark:#9aa4b2;--text-dark:#e6eef6}
     [data-theme='light']{--bg-dark:#f7fafc;--card-dark:#ffffff;--muted-dark:#475569;--accent:#2563eb;--text-dark:#0b1220}
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg-dark);color:var(--text-dark);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:var(--bg-dark);color:var(--text-dark);-webkit-font-smoothing:antialiased}
 
     /* gradient background */
     .gradient-bg{position:fixed;inset:0;z-index:-3;background:linear-gradient(120deg,#06b6d4,#7c3aed,#60a5fa,#0ea5a6);background-size:400% 400%;filter:blur(36px) saturate(120%);opacity:0.72;animation:gradientMove 18s ease infinite}
-    [data-theme='light'] .gradient-bg{opacity:0.45;filter:blur(28px) saturate(90%)}
     @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
     header{position:relative;z-index:5;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -24,156 +23,28 @@
     .controls{display:flex;gap:12px;align-items:center}
     select{padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:inherit}
 
-    main{max-width:1100px;margin:10px auto;padding:18px;position:relative;z-index:4}
+    main{max-width:1100px;margin:10px auto;padding:18px}
+
+    /* card */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(2,6,23,0.06);transition:transform .18s ease,box-shadow .18s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(2,6,23,0.16), 0 0 28px rgba(96,165,250,0.06)}
+    .card{background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 8px 30px rgba(2,6,23,0.06);transition:0.2s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(2,6,23,0.16)}
 
-    h3{margin:0 0 8px;font-size:16px}
     textarea,input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
-    .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
     button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:#042235;font-weight:700;cursor:pointer}
-    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted-dark)}
-    .result{margin-top:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);font-size:13px;color:var(--muted-dark)}
+    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted-dark)}
 
-    /* popup */
-    #welcome-popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.45);backdrop-filter:blur(6px);z-index:9999}
-    .popup-box{max-width:380px;width:92%;padding:26px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px);box-shadow:0 14px 40px rgba(2,6,23,0.45);text-align:center}
-    .popup-box h2{margin:0 0 8px}
-    .popup-box p{color:rgba(255,255,255,0.9);margin:0 0 14px}
-    <!-- Adsterra Native Banner -->
-<script async="async" data-cfasync="false" src="//pl28043433.effectivegatecpm.com/83774cc2e9e990d38d91b3148c45a4f5/invoke.js"></script>
-<div id="container-83774cc2e9e990d38d91b3148c45a4f5" style="margin: 20px auto; width: 100%; max-width: 800px;"></div>
-    /* footer bar */
-    .footer-bar{position:fixed;left:12px;right:12px;bottom:12px;padding:10px 14px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 8px 30px rgba(2,6,23,0.18)}
-    .footer-left{font-size:14px;color:var(--muted-dark)}
-    .footer-right{font-size:13px;color:var(--muted-dark)}
-
-    /* back to top */
-    .back-top{position:fixed;right:18px;bottom:86px;width:52px;height:52px;border-radius:28px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(96,165,250,0.12);border:1px solid rgba(255,255,255,0.06);cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity .28s,transform .28s}
-    .back-top.show{opacity:1;transform:translateY(0)}
-    .back-top .icon{width:28px;height:28px;border-radius:999px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#042235;font-weight:800;box-shadow:0 6px 18px rgba(96,165,250,0.35)}
-
-    /* responsive tweaks */
-    @media(max-width:720px){
-      header{padding:12px}
-      .controls{width:100%;justify-content:flex-end}
-      .footer-bar{left:8px;right:8px;bottom:8px;padding:10px}
-      .back-top{right:12px;bottom:74px}
-      textarea,input{font-size:15px}
-      .gradient-bg{filter:blur(20px) saturate(110%);opacity:0.6}
-    }
-    @media(max-width:420px){
-      .grid{gap:12px}
-      .card{padding:12px}
-      .back-top{width:48px;height:48px;right:10px;bottom:72px}
-      .popup-box{padding:18px}
-      .gradient-bg{filter:blur(14px) saturate(100%);opacity:0.5}
-    }
+    .result{margin-top:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted-dark)}
 
   </style>
 </head>
+
 <body>
-  <!-- Soft Glow Orbs Background -->
-<div class="orb-bg" aria-hidden="true">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-  <div class="orb orb4"></div>
-</div>
-<!-- Subtle Glass Reflection Overlay -->
-<div class="glass-reflection" aria-hidden="true"></div>
+  <!-- POPUNDER (must be at top inside <body>) -->
+  <script type='text/javascript' src='//pl28043417.effectivegatecpm.com/e2/31/a8/e231a8bf26114a7cef07b837dc57e7ae.js'></script>
 
-<style>
-.glass-reflection {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 70%),
-              linear-gradient(120deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-  backdrop-filter: blur(24px) saturate(120%);
-  pointer-events: none;
-  z-index: -2;
-  opacity: 0.4;
-  animation: shimmer 12s ease-in-out infinite alternate;
-}
-
-@keyframes shimmer {
-  0% { background-position: 0% 0%; opacity: 0.35; }
-  50% { background-position: 100% 50%; opacity: 0.5; }
-  100% { background-position: 50% 100%; opacity: 0.4; }
-}
-
-@media(max-width: 600px){
-  .glass-reflection { backdrop-filter: blur(14px); opacity: 0.3; }
-}
-</style>
-
-<style>
-.orb-bg {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: -3;
-  background: radial-gradient(circle at 50% 50%, #0f172a, #020617);
-}
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.45;
-  animation: float 18s ease-in-out infinite;
-  mix-blend-mode: screen;
-}
-
-.orb1 {
-  width: 400px;
-  height: 400px;
-  background: #60a5fa;
-  top: 10%;
-  left: 20%;
-  animation-delay: 0s;
-}
-
-.orb2 {
-  width: 350px;
-  height: 350px;
-  background: #7c3aed;
-  top: 50%;
-  left: 60%;
-  animation-delay: -5s;
-}
-
-.orb3 {
-  width: 280px;
-  height: 280px;
-  background: #0ea5e9;
-  top: 70%;
-  left: 10%;
-  animation-delay: -10s;
-}
-
-.orb4 {
-  width: 450px;
-  height: 450px;
-  background: #a855f7;
-  top: 20%;
-  left: 70%;
-  animation-delay: -15s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  25% { transform: translateY(-40px) translateX(30px); }
-  50% { transform: translateY(40px) translateX(-20px); }
-  75% { transform: translateY(-30px) translateX(-40px); }
-}
-
-@media(max-width: 600px) {
-  .orb { filter: blur(80px); opacity: 0.4; }
-}
-</style>
-
+  <!-- Animated Background -->
+  <div class="gradient-bg"></div>
 
   <header>
     <div>
@@ -182,7 +53,7 @@
     </div>
     <div class="controls">
       <div>
-        <label class="sub" for="theme-switch">Theme</label>
+        <label class="sub">Theme</label>
         <select id="theme-switch">
           <option value="auto">Auto</option>
           <option value="dark">Dark</option>
@@ -190,7 +61,7 @@
         </select>
       </div>
       <div>
-        <label class="sub" for="anim-switch">Animation</label>
+        <label class="sub">Animation</label>
         <select id="anim-switch">
           <option value="on">ON</option>
           <option value="off">OFF</option>
@@ -201,6 +72,8 @@
 
   <main>
     <div class="grid">
+
+      <!-- TEXT CASE -->
       <section class="card">
         <h3>Text Case Converter</h3>
         <textarea id="case-input" rows="5" placeholder="यहाँ text डालें..."></textarea>
@@ -213,9 +86,10 @@
         <div class="result" id="case-result">Result...</div>
       </section>
 
+      <!-- WORD COUNTER -->
       <section class="card">
         <h3>Word & Character Counter</h3>
-        <textarea id="count-input" rows="5" placeholder="Type or paste text..."></textarea>
+        <textarea id="count-input" rows="5"></textarea>
         <div class="row">
           <button id="count-btn">Count</button>
           <button id="count-clear" class="mutebtn">Clear</button>
@@ -223,9 +97,10 @@
         <div class="result" id="count-result">Words: 0 — Characters: 0</div>
       </section>
 
+      <!-- BASE64 -->
       <section class="card">
         <h3>Base64 Encode / Decode</h3>
-        <textarea id="b64-input" rows="4" placeholder="Text..."></textarea>
+        <textarea id="b64-input" rows="4"></textarea>
         <div class="row">
           <button id="b64-enc">Encode</button>
           <button id="b64-dec" class="mutebtn">Decode</button>
@@ -233,6 +108,7 @@
         <div class="result" id="b64-result">Output...</div>
       </section>
 
+      <!-- IMAGE to BASE64 -->
       <section class="card">
         <h3>Image to Base64</h3>
         <input type="file" id="img-input" accept="image/*">
@@ -240,134 +116,89 @@
         <div class="result" id="img-result">Base64 result...</div>
       </section>
 
+      <!-- PDF -->
       <section class="card">
         <h3>Text to PDF</h3>
-        <textarea id="pdf-input" rows="5" placeholder="Text to download as PDF..."></textarea>
+        <textarea id="pdf-input" rows="5"></textarea>
         <div class="row"><button id="pdf-download">Download PDF</button></div>
       </section>
 
+      <!-- URL Encode -->
       <section class="card">
         <h3>URL Encoder / Decoder</h3>
-        <textarea id="url-input" rows="4" placeholder="Enter URL or text..."></textarea>
-        <div class="row"><button id="url-enc">Encode</button><button id="url-dec" class="mutebtn">Decode</button></div>
+        <textarea id="url-input" rows="4"></textarea>
+        <div class="row">
+          <button id="url-enc">Encode</button>
+          <button id="url-dec" class="mutebtn">Decode</button>
+        </div>
         <div class="result" id="url-result">Result...</div>
       </section>
 
+      <!-- YOUTUBE -->
       <section class="card">
-        <h3>YouTube Video Info Fetcher (Info only)</h3>
+        <h3>YouTube Video Info Fetcher</h3>
         <input type="text" id="yt-link" placeholder="YouTube video link डालें">
         <div class="row"><button id="yt-fetch">Fetch Info</button></div>
         <div class="result" id="yt-result">Video details...</div>
       </section>
+
     </div>
   </main>
 
-  <div class="footer-bar" role="contentinfo">
-    <div class="footer-left" id="footer-left">👀 Visitors: ...</div>
-    <div class="footer-right">Automate your small tasks easily — by Goyal’s</div>
+  <!-- ⭐ NATIVE BANNER (Below Tools — correct place) -->
+  <div style="max-width:800px;margin:20px auto;">
+    <script async="async" data-cfasync="false" src="//pl28043433.effectivegatecpm.com/83774cc2e9e990d38d91b3148c45a4f5/invoke.js"></script>
+    <div id="container-83774cc2e9e990d38d91b3148c45a4f5"></div>
   </div>
 
-  <div class="back-top" id="backTop" title="Back to top" aria-hidden="true">
-    <div class="icon">↑</div>
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <div class="footer-left">👀 Visitors: <span id="visit-count">0</span></div>
+    <div class="footer-right">Made with ❤️ by Goyal's</div>
   </div>
 
-  <div id="welcome-popup" aria-hidden="true">
+  <!-- BACK TO TOP -->
+  <div class="back-top" id="backTop"><div class="icon">↑</div></div>
+
+  <!-- POPUP -->
+  <div id="welcome-popup" style="display:none;">
     <div class="popup-box">
       <h2>👋 Welcome!</h2>
-      <p>Welcome to <b>Goyal's Tools</b><br>Automate your small tasks easily — by Goyal’s.</p>
-      <div style="text-align:center"><button id="close-popup">Got it</button></div>
+      <p>Welcome to <b>Goyal's Tools</b></p>
+      <button id="close-popup">Got it</button>
     </div>
   </div>
 
+  <!-- LOGIC + VISITOR COUNTER + ADS -->
   <script>
-    // Theme & animation
-    const themeSelect = document.getElementById('theme-switch');
-    const animSelect = document.getElementById('anim-switch');
-    function applyTheme(pref){
-      if(pref === 'auto'){
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', pref);
-      }
-      localStorage.setItem('site-theme', pref);
+
+    /* NEW VISITOR COUNTER (works on GitHub Pages 100%) */
+    let counter = parseInt(localStorage.getItem("visit-counter") || "0");
+    counter++;
+    localStorage.setItem("visit-counter", counter);
+    document.getElementById("visit-count").textContent = counter;
+
+    /* POPUP LOGIC */
+    const popup = document.getElementById("welcome-popup");
+    if (!localStorage.getItem("visited")){
+      popup.style.display = "flex";
+      document.getElementById("close-popup").onclick = () => {
+        popup.style.display = "none";
+        localStorage.setItem("visited", "true");
+      };
     }
-    function applyAnim(state){
-      const g = document.querySelector('.gradient-bg');
-      if(!g) return;
-      if(state === 'off'){
-        g.style.animation = 'none';
-        g.style.opacity = '0.2';
-      } else {
-        g.style.animation = 'gradientMove 18s ease infinite';
-        g.style.opacity = '';
-      }
-      localStorage.setItem('anim-state', state);
-    }
-    const savedTheme = localStorage.getItem('site-theme') || 'auto';
-    const savedAnim = localStorage.getItem('anim-state') || 'on';
-    themeSelect.value = savedTheme; animSelect.value = savedAnim; applyTheme(savedTheme); applyAnim(savedAnim);
-    themeSelect.addEventListener('change', ()=> applyTheme(themeSelect.value));
-    animSelect.addEventListener('change', ()=> applyAnim(animSelect.value));
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=> { if(localStorage.getItem('site-theme') === 'auto') applyTheme('auto'); });
 
-    // Tools logic
-    const caseInput = document.getElementById('case-input'); const caseResult = document.getElementById('case-result');
-    document.getElementById('to-upper').addEventListener('click', ()=> caseResult.textContent = caseInput.value.toUpperCase());
-    document.getElementById('to-lower').addEventListener('click', ()=> caseResult.textContent = caseInput.value.toLowerCase());
-    document.getElementById('to-title')?.addEventListener('click', ()=> caseResult.textContent = caseInput.value.replace(/\w\S*/g, w => w.charAt(0).toUpperCase()+w.substr(1).toLowerCase()));
-    document.getElementById('case-copy').addEventListener('click', ()=> navigator.clipboard.writeText(caseResult.textContent).catch(()=>{}));
-
-    // Count tool
-    const countInput = document.getElementById('count-input'); const countResult = document.getElementById('count-result');
-    document.getElementById('count-btn').addEventListener('click', ()=>{ const t = countInput.value.trim(); countResult.textContent = `Words: ${t.split(/\s+/).filter(Boolean).length} — Characters: ${t.length}`; });
-    document.getElementById('count-clear').addEventListener('click', ()=>{ countInput.value = ''; countResult.textContent = 'Words: 0 — Characters: 0'; });
-
-    // Base64
-    const b64Input = document.getElementById('b64-input'); const b64Result = document.getElementById('b64-result');
-    document.getElementById('b64-enc').addEventListener('click', ()=>{ try{ b64Result.textContent = btoa(b64Input.value); }catch(e){ b64Result.textContent = 'Error'; } });
-    document.getElementById('b64-dec').addEventListener('click', ()=>{ try{ b64Result.textContent = atob(b64Input.value); }catch(e){ b64Result.textContent = 'Invalid Base64'; } });
-
-    // Image to Base64
-    document.getElementById('img-convert').addEventListener('click', ()=>{
-      const f = document.getElementById('img-input').files[0]; if(!f){ alert('कृपया इमेज चुनें'); return; }
-      const r = new FileReader(); r.onload = ()=> document.getElementById('img-result').textContent = r.result; r.readAsDataURL(f);
+    /* BACK TO TOP */
+    const backTop = document.getElementById("backTop");
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("show", window.scrollY > 200);
     });
+    backTop.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
 
-    // PDF download
-    document.getElementById('pdf-download').addEventListener('click', ()=>{
-      const t = document.getElementById('pdf-input').value || ''; const blob = new Blob([t], {type:'application/pdf'}); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'text.pdf'; link.click();
-    });
+  </script>
 
-    // URL encode/decode
-    document.getElementById('url-enc').addEventListener('click', ()=> document.getElementById('url-result').textContent = encodeURIComponent(document.getElementById('url-input').value));
-    document.getElementById('url-dec').addEventListener('click', ()=> document.getElementById('url-result').textContent = decodeURIComponent(document.getElementById('url-input').value));
+  <!-- ⭐ SOCIAL BAR (must be just before </body>) -->
+  <script type='text/javascript' src='//pl28043438.effectivegatecpm.com/5b/27/6d/5b276dbb8048733bb01279cbb297f060.js'></script>
 
-    // YouTube info
-    document.getElementById('yt-fetch').addEventListener('click', ()=>{
-      const link = document.getElementById('yt-link').value.trim(); const match = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-      const out = document.getElementById('yt-result'); if(!match){ out.innerHTML = 'Invalid YouTube URL'; return; }
-      const id = match[1]; const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; const video = `https://www.youtube.com/watch?v=${id}`;
-      out.innerHTML = `<img src='${thumb}' alt='thumb' style='max-width:100%;border-radius:8px;margin-bottom:8px'><div><a href='${video}' target='_blank' rel='noopener'>Open Video</a></div><small>Video ID: ${id}</small>`;
-    });
-
-    // Visitor counter (CountAPI)
-    const footerLeft = document.getElementById('footer-left');
-    fetch('https://api.countapi.xyz/hit/goyalstools/freevisits').then(r=>r.json()).then(d=>footerLeft.textContent = `👀 Visitors: ${d.value}`).catch(()=>footerLeft.textContent = '👀 Visitors: N/A');
-
-    // Welcome popup
-    const popup = document.getElementById('welcome-popup'); if(!localStorage.getItem('visited')){ popup.style.display = 'flex'; document.getElementById('close-popup').addEventListener('click', ()=>{ popup.style.display = 'none'; localStorage.setItem('visited','true'); }); }
-
-    // Back to top
-    const backTop = document.getElementById('backTop'); window.addEventListener('scroll', ()=>{ if(window.scrollY > 220){ backTop.classList.add('show'); } else { backTop.classList.remove('show'); } });
-    backTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
-
-    // Accessibility: Enter key activates buttons
-    document.querySelectorAll('button,select,input,textarea').forEach(el=>el.addEventListener('keydown', e=>{ if(e.key==='Enter') e.target.click?.(); }));
-
-
-<script type='text/javascript' src='//pl28043438.effectivegatecpm.com/5b/27/6d/5b276dbb8048733bb01279cbb297f060.js'></script>
-</script>
 </body>
-<script type='text/javascript' src='//pl28043417.effectivegatecpm.com/e2/31/a8/e231a8bf26114a7cef07b837dc57e7ae.js'></script>
 </html>
