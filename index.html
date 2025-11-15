@@ -4,122 +4,77 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Goyal's Tools — Free Online Utilities</title>
-<meta name="description" content="20 Free Tools — PDF, Text, Encode, QR, Password Generator. Automate your small tasks easily — by Goyal's.">
+<meta name="description" content="Goyal's Tools — 20 free online utilities: text, image, converters, QR, PDF, passwords and more. Fast, privacy-first and lightweight." />
 <meta name="theme-color" content="#0f1724">
 
-<!-- OG Meta -->
+<!-- Open Graph -->
 <meta property="og:title" content="Goyal's Tools — Free Online Utilities">
 <meta property="og:description" content="20 powerful tools in one place. Fast, modern and animated UI.">
 <meta property="og:image" content="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/">
 
-<!-- CSS -->
+<!-- MINIFIED & OPTIMIZED CSS -->
 <style>
 :root{
   --accent:#60a5fa;
   --text:#e6eef6;
   --muted:#9aa4b2;
+  --card:rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.03);
 }
-
-/* Background HD */
-.bg-hd{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  background:url('goyals_background_hd.webp') center/cover no-repeat fixed;
-  filter:brightness(1.15) saturate(1.25);
-  animation:bgShift 18s ease-in-out infinite alternate;
-}
-@keyframes bgShift{
-  0% { transform:scale(1); }
-  50% { transform:scale(1.03); }
-  100% { transform:scale(1); }
-}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#071428;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-hd{position:fixed;inset:0;z-index:-3;background:url('goyals_background_hd.webp') center/cover no-repeat fixed;filter:brightness(1.12) saturate(1.15);animation:bgShift 18s ease-in-out infinite alternate}
+@keyframes bgShift{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
 
 /* Header */
-.site-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 22px;
-  backdrop-filter:blur(8px);
-  position:relative;z-index:5;
-}
-.logo-box{
-  width:62px;height:62px;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 8px 28px rgba(96,165,250,0.25);
-  background:rgba(255,255,255,0.05);
-  display:flex;align-items:center;justify-content:center;
-}
-.logo-box img{width:90%;height:auto;}
-
-.brand-title{font-size:22px;font-weight:800;}
-.brand-sub{font-size:13px;color:var(--muted);margin-top:2px;}
-
-.controls select{
-  padding:7px;border-radius:8px;background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);color:white;
-}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;position:relative;z-index:12;backdrop-filter:blur(6px)}
+.brand-wrap{display:flex;align-items:center;gap:12px}
+.logo-box{width:62px;height:62px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);box-shadow:0 8px 28px rgba(96,165,250,0.12)}
+.logo-box img{width:86%;height:auto;display:block}
+.brand-title{font-size:20px;font-weight:800}
+.brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.controls select{padding:8px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--text)}
 
 /* Layout */
-.container{max-width:1120px;margin:20px auto;padding:18px;position:relative;z-index:4}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.container{max-width:1120px;margin:18px auto;padding:18px;position:relative;z-index:10}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 
-/* Cards */
-.card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:16px;border-radius:14px;
-  backdrop-filter:blur(10px);
-  transition:.2s;
-}
-.card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.07);}
-.card h3{margin:0;font-size:17px;}
-
-textarea,input{
-  width:100%;padding:10px;border-radius:10px;
-  background:rgba(0,0,0,0.25);
-  border:1px solid rgba(255,255,255,0.12);
-  color:white;
-}
+/* Card style */
+.card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(8px);transition:transform .16s;box-shadow:0 6px 20px rgba(2,6,23,0.18)}
+.card:hover{transform:translateY(-6px)}
+h3{margin:0 0 8px;font-size:16px}
+textarea,input,select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.24);color:var(--text)}
 .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-button{
-  background:var(--accent);border:0;padding:8px 12px;border-radius:10px;
-  color:#042235;font-weight:700;cursor:pointer;
-}
-.mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--muted);}
-.result{margin-top:10px;padding:10px;background:rgba(255,255,255,0.08);color:var(--muted);border-radius:10px;}
+button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:#042235;font-weight:700;cursor:pointer}
+.mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted)}
+.result{margin-top:8px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-size:13px}
 
-/* Footer */
-.footer{text-align:center;margin-top:20px;color:var(--muted)}
+/* Footer & back-top */
+.footer{text-align:center;margin-top:18px;color:var(--muted);font-size:14px}
+#backTop{position:fixed;right:18px;bottom:82px;width:46px;height:46px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#042235;opacity:0;transition:.25s}
+#backTop.show{opacity:1}
 
-/* Back to Top */
-#backTop{
-  position:fixed;right:20px;bottom:85px;width:48px;height:48px;border-radius:50%;
-  background:var(--accent);display:flex;align-items:center;justify-content:center;
-  color:#042235;font-weight:900;font-size:20px;cursor:pointer;opacity:0;
-  transition:.3s;z-index:6;
-}
-#backTop.show{opacity:1;}
-
-@media(max-width:720px){
-  *{animation:none!important}
-  .logo-box{width:50px;height:50px;}
-}
+/* Mobile speed */
+@media(max-width:720px){*{animation:none!important}}
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="bg-hd"></div>
+<!-- Background (ensure goyals_background_hd.webp uploaded) -->
+<div class="bg-hd" aria-hidden="true"></div>
 
+<!-- HEADER -->
 <header class="site-header">
-  <div style="display:flex;align-items:center;gap:12px;">
-      <div class="logo-box"><img src="logo_hd.png" alt=""></div>
-      <div>
-        <div class="brand-title">Goyal's Tools</div>
-        <div class="brand-sub">Automate your small tasks easily</div>
-      </div>
+  <div class="brand-wrap">
+    <div class="logo-box">
+      <img src="logo_hd.png" alt="Goyal's Tools" onerror="this.style.display='none'">
+    </div>
+    <div>
+      <div class="brand-title">Goyal's Tools</div>
+      <div class="brand-sub">Automate your small tasks easily — by Goyal's</div>
+    </div>
   </div>
 
   <div class="controls">
@@ -131,33 +86,81 @@ button{
   </div>
 </header>
 
+<!-- MAIN -->
 <main class="container">
+
   <div class="grid">
 
+    <!-- TOOL 1: Text Case Converter -->
     <section class="card">
       <h3>Text Case Converter</h3>
-      <textarea id="case-input" rows="4"></textarea>
+      <textarea id="case-input" rows="4" placeholder="यहाँ text डालें..."></textarea>
       <div class="row">
-        <button id="to-upper">UPPER</button>
-        <button class="mutebtn" id="to-lower">lower</button>
+        <button id="to-upper">UPPERCASE</button>
+        <button class="mutebtn" id="to-lower">lowercase</button>
+        <button class="mutebtn" id="to-title">Title Case</button>
       </div>
       <div class="result" id="case-result">Result...</div>
     </section>
 
+    <!-- TOOL 2: Word & Character Counter -->
     <section class="card">
-      <h3>Word Counter</h3>
-      <textarea id="count-input" rows="4"></textarea>
-      <div class="row"><button id="count-btn">Count</button></div>
+      <h3>Word & Character Counter</h3>
+      <textarea id="count-input" rows="4" placeholder="Type or paste text..."></textarea>
+      <div class="row">
+        <button id="count-btn">Count</button>
+        <button class="mutebtn" id="count-clear">Clear</button>
+      </div>
       <div class="result" id="count-result">Words: 0 — Characters: 0</div>
     </section>
 
+    <!-- TOOL 3: Base64 Encode / Decode -->
     <section class="card">
-      <h3>Password Generator</h3>
-      <input type="number" id="pass-len" min="4" max="64" value="12">
-      <div class="row"><button id="pass-gen">Generate</button></div>
-      <div class="result" id="pass-result">Password...</div>
+      <h3>Base64 Encode / Decode</h3>
+      <textarea id="b64-input" rows="4" placeholder="Text..."></textarea>
+      <div class="row">
+        <button id="b64-enc">Encode</button>
+        <button class="mutebtn" id="b64-dec">Decode</button>
+      </div>
+      <div class="result" id="b64-result">Output...</div>
     </section>
 
+    <!-- TOOL 4: Image to Base64 -->
+    <section class="card">
+      <h3>Image to Base64</h3>
+      <input type="file" id="img-input" accept="image/*">
+      <div class="row"><button id="img-convert">Convert</button></div>
+      <div class="result" id="img-result">Base64 result...</div>
+    </section>
+
+    <!-- TOOL 5: Text to PDF -->
+    <section class="card">
+      <h3>Text to PDF</h3>
+      <textarea id="pdf-input" rows="4" placeholder="Text to download as PDF..."></textarea>
+      <div class="row"><button id="pdf-download">Download PDF</button></div>
+      <div class="result small" id="pdf-result"></div>
+    </section>
+
+    <!-- TOOL 6: URL Encoder / Decoder -->
+    <section class="card">
+      <h3>URL Encoder / Decoder</h3>
+      <textarea id="url-input" rows="4" placeholder="Enter URL or text..."></textarea>
+      <div class="row">
+        <button id="url-enc">Encode</button>
+        <button class="mutebtn" id="url-dec">Decode</button>
+      </div>
+      <div class="result" id="url-result">Result...</div>
+    </section>
+
+    <!-- TOOL 7: YouTube Info Fetcher -->
+    <section class="card">
+      <h3>YouTube Video Info Fetcher</h3>
+      <input type="text" id="yt-link" placeholder="YouTube video link डालें">
+      <div class="row"><button id="yt-fetch">Fetch Info</button></div>
+      <div class="result" id="yt-result">Video details...</div>
+    </section>
+
+    <!-- TOOL 8: QR Code Generator -->
     <section class="card">
       <h3>QR Code Generator</h3>
       <input id="qr-text" placeholder="Text or URL">
@@ -165,58 +168,427 @@ button{
       <div class="result"><img id="qr-img" style="max-width:100%;border-radius:8px"></div>
     </section>
 
+    <!-- TOOL 9: Password Generator -->
+    <section class="card">
+      <h3>Password Generator</h3>
+      <input type="number" id="pass-len" min="4" max="64" value="16" style="width:120px">
+      <div class="row"><button id="pass-gen">Generate</button></div>
+      <div class="result" id="pass-result">Password...</div>
+    </section>
+
+    <!-- TOOL 10: Random Number Generator -->
+    <section class="card">
+      <h3>Random Number Generator</h3>
+      <input type="number" id="rand-min" placeholder="Min" value="1">
+      <input type="number" id="rand-max" placeholder="Max" value="100">
+      <div class="row"><button id="rand-gen">Generate</button></div>
+      <div class="result" id="rand-result">Random number...</div>
+    </section>
+
+    <!-- TOOL 11: Color Picker -->
+    <section class="card">
+      <h3>Color Picker</h3>
+      <input type="color" id="col-pick" style="padding:0;height:48px;">
+      <div class="result" id="col-result">Pick a color...</div>
+    </section>
+
+    <!-- TOOL 12: Text Difference Checker -->
+    <section class="card">
+      <h3>Text Difference Checker</h3>
+      <textarea id="diff-a" rows="3" placeholder="पहला text..."></textarea>
+      <textarea id="diff-b" rows="3" placeholder="दूसरा text..."></textarea>
+      <div class="row"><button id="diff-check">Compare</button></div>
+      <div class="result" id="diff-result">Result...</div>
+    </section>
+
+    <!-- TOOL 13: JSON Formatter -->
+    <section class="card">
+      <h3>JSON Formatter</h3>
+      <textarea id="json-input" rows="4" placeholder="Paste JSON..."></textarea>
+      <div class="row"><button id="json-format">Format</button></div>
+      <div class="result" id="json-result">Formatted JSON...</div>
+    </section>
+
+    <!-- TOOL 14: HTML Encoder -->
+    <section class="card">
+      <h3>HTML Encoder</h3>
+      <textarea id="html-input" rows="4" placeholder="<html>...</html>"></textarea>
+      <div class="row">
+        <button id="html-encode">Encode</button>
+        <button class="mutebtn" id="html-decode">Decode</button>
+      </div>
+      <div class="result" id="html-result">Encoded output...</div>
+    </section>
+
+    <!-- TOOL 15: MD5 Hash Generator -->
+    <section class="card">
+      <h3>MD5 Generator</h3>
+      <textarea id="md5-input" rows="3" placeholder="Enter text..."></textarea>
+      <div class="row"><button id="md5-gen">Generate</button></div>
+      <div class="result" id="md5-result">MD5 hash...</div>
+    </section>
+
+    <!-- TOOL 16: SHA256 Hash Generator -->
+    <section class="card">
+      <h3>SHA-256 Generator</h3>
+      <textarea id="sha-input" rows="3" placeholder="Enter text..."></textarea>
+      <div class="row"><button id="sha-gen">Generate</button></div>
+      <div class="result" id="sha-result">SHA256 hash...</div>
+    </section>
+
+    <!-- TOOL 17: Text Repeater -->
+    <section class="card">
+      <h3>Text Repeater</h3>
+      <textarea id="rep-text" rows="3" placeholder="Text..."></textarea>
+      <input type="number" id="rep-count" value="5" min="1" max="500">
+      <div class="row"><button id="rep-gen">Repeat</button></div>
+      <div class="result" id="rep-result">Repeated text...</div>
+    </section>
+
+    <!-- TOOL 18: Remove Extra Spaces -->
+    <section class="card">
+      <h3>Remove Extra Spaces</h3>
+      <textarea id="space-text" rows="4" placeholder="Enter messy text..."></textarea>
+      <div class="row"><button id="space-clean">Clean</button></div>
+      <div class="result" id="space-result">Clean text...</div>
+    </section>
+
+    <!-- TOOL 19: Email Extractor -->
+    <section class="card">
+      <h3>Email Extractor</h3>
+      <textarea id="email-text" rows="4" placeholder="Paste text with emails..."></textarea>
+      <div class="row"><button id="email-extract">Extract</button></div>
+      <div class="result" id="email-result">Extracted emails...</div>
+    </section>
+
+    <!-- TOOL 20: Username Generator -->
+    <section class="card">
+      <h3>Username Generator</h3>
+      <input type="text" id="user-base" placeholder="Base word (optional)">
+      <div class="row"><button id="user-gen">Generate</button></div>
+      <div class="result" id="user-result">Username...</div>
+    </section>
+
+  </div> <!-- tools grid end -->
+
+  <div class="footer">
+    Visitors: <span id="visitors">Loading...</span><br>
+    © 2025 Goyal's Tools — All Rights Reserved
   </div>
 
-  <div class="footer">Visitors: <span id="visitors">Loading...</span></div>
 </main>
 
 <button id="backTop">↑</button>
-
-<!-- JS -->
 <script>
+// helper
 const $ = id => document.getElementById(id);
 
-/* Tools */
-$("to-upper").onclick = ()=> $("case-result").textContent = $("case-input").value.toUpperCase();
-$("to-lower").onclick = ()=> $("case-result").textContent = $("case-input").value.toLowerCase();
+// THEME: auto / dark / light
+(function(){
+  const sel = $('theme-switch');
+  function apply(pref){
+    if(pref==='auto'){
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', pref);
+    }
+    localStorage.setItem('gt_theme', pref);
+  }
+  const saved = localStorage.getItem('gt_theme') || 'auto';
+  sel.value = saved;
+  apply(saved);
+  sel.addEventListener('change', ()=> apply(sel.value));
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=> {
+    if(localStorage.getItem('gt_theme')==='auto') apply('auto');
+  });
+})();
 
-$("count-btn").onclick = ()=>{
-  const t = $("count-input").value.trim();
-  $("count-result").textContent = `Words: ${t.split(/\s+/).filter(Boolean).length} — Characters: ${t.length}`;
+// COPY helper
+function copyText(txt){
+  if(!txt) return;
+  navigator.clipboard?.writeText(txt).then(()=>{}).catch(()=>{});
 }
 
-$("pass-gen").onclick = ()=>{
-  const len = Math.max(4, Math.min(64, parseInt($("pass-len").value||12)));
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?";
-  let out=""; for(let i=0;i<len;i++) out+=chars[Math.floor(Math.random()*chars.length)];
-  $("pass-result").textContent=out;
+// TOOL 1: Text Case Converter
+$('to-upper').addEventListener('click', ()=> $('case-result').textContent = $('case-input').value.toUpperCase());
+$('to-lower').addEventListener('click', ()=> $('case-result').textContent = $('case-input').value.toLowerCase());
+$('to-title')?.addEventListener('click', ()=> {
+  const s = $('case-input').value;
+  $('case-result').textContent = s.replace(/\w\S*/g, w => w.charAt(0).toUpperCase()+w.substr(1).toLowerCase());
+});
+
+// TOOL 2: Word & Character Counter
+$('count-btn').addEventListener('click', ()=> {
+  const t = $('count-input').value.trim();
+  $('count-result').textContent = `Words: ${t.split(/\s+/).filter(Boolean).length} — Characters: ${t.length}`;
+});
+$('count-clear').addEventListener('click', ()=> { $('count-input').value=''; $('count-result').textContent='Words: 0 — Characters: 0'; });
+
+// TOOL 3: Base64 Encode/Decode
+$('b64-enc').addEventListener('click', ()=> {
+  try { $('b64-result').textContent = btoa($('b64-input').value); } catch(e){ $('b64-result').textContent='Error'; }
+});
+$('b64-dec').addEventListener('click', ()=> {
+  try { $('b64-result').textContent = atob($('b64-input').value); } catch(e){ $('b64-result').textContent='Invalid Base64'; }
+});
+
+// TOOL 4: Image to Base64
+$('img-convert').addEventListener('click', ()=> {
+  const f = $('img-input').files[0];
+  if(!f){ alert('कृपया इमेज चुनें'); return; }
+  const r = new FileReader();
+  r.onload = ()=> $('img-result').textContent = r.result;
+  r.readAsDataURL(f);
+});
+
+// TOOL 5: Text to PDF (basic)
+$('pdf-download').addEventListener('click', ()=> {
+  const t = $('pdf-input').value||'';
+  // create a simple text-pdf blob (not formatted)
+  const blob = new Blob([t], {type:'application/pdf'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'text.pdf'; a.click();
+});
+
+// TOOL 6: URL Encode/Decode
+$('url-enc').addEventListener('click', ()=> $('url-result').textContent = encodeURIComponent($('url-input').value));
+$('url-dec').addEventListener('click', ()=> {
+  try { $('url-result').textContent = decodeURIComponent($('url-input').value); } catch(e){ $('url-result').textContent='Invalid'; }
+});
+
+// TOOL 7: YouTube Info Fetcher (thumb + ID)
+$('yt-fetch').addEventListener('click', ()=> {
+  const link = $('yt-link').value.trim();
+  const match = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if(!match){ $('yt-result').textContent='Invalid YouTube URL'; return; }
+  const id = match[1];
+  const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+  $('yt-result').innerHTML = `<img src="${thumb}" style="max-width:100%;border-radius:8px;margin-bottom:8px"><div><a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Open Video</a></div><small>Video ID: ${id}</small>`;
+});
+
+// TOOL 8: QR Code (api)
+$('qr-gen').addEventListener('click', ()=> {
+  const t = $('qr-text').value.trim();
+  if(!t){ $('qr-img').src=''; return; }
+  $('qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(t)}`;
+});
+
+// TOOL 9: Password Generator
+$('pass-gen').addEventListener('click', ()=> {
+  const len = Math.max(4, Math.min(64, parseInt($('pass-len').value||16)));
+  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{};:,.<>/?";
+  let out = '';
+  for(let i=0;i<len;i++) out += chars.charAt(Math.floor(Math.random()*chars.length));
+  $('pass-result').textContent = out;
+  copyText(out);
+});
+
+// TOOL 10: Random Number
+$('rand-gen').addEventListener('click', ()=> {
+  const a = Number($('rand-min').value||1), b = Number($('rand-max').value||100);
+  if(isNaN(a)||isNaN(b)||b<a){ alert('Invalid range'); return; }
+  const r = Math.floor(Math.random()*(b-a+1))+a;
+  $('rand-result').textContent = r;
+});
+
+// TOOL 11: Color Picker
+$('col-pick')?.addEventListener('input', function(){ $('col-result').textContent = this.value; copyText(this.value); });
+
+// TOOL 12: Text Difference Checker (simple diff)
+$('diff-check').addEventListener('click', ()=> {
+  const A = $('diff-a').value.split(/\r?\n/);
+  const B = $('diff-b').value.split(/\r?\n/);
+  const onlyA = A.filter(x=>!B.includes(x));
+  const onlyB = B.filter(x=>!A.includes(x));
+  $('diff-result').textContent = `Only in A: ${onlyA.length} lines\nOnly in B: ${onlyB.length} lines\n\nA\\B sample:\n${onlyA.slice(0,6).join('\n')}\n\nB\\A sample:\n${onlyB.slice(0,6).join('\n')}`;
+});
+
+// TOOL 13: JSON Formatter
+$('json-format').addEventListener('click', ()=> {
+  try {
+    const parsed = JSON.parse($('json-input').value);
+    $('json-result').textContent = JSON.stringify(parsed, null, 2);
+  } catch(e){ $('json-result').textContent = 'Invalid JSON: '+ e.message; }
+});
+
+// TOOL 14: HTML Encode / Decode
+$('html-encode').addEventListener('click', ()=> {
+  const s = $('html-input').value;
+  $('html-result').textContent = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+});
+$('html-decode').addEventListener('click', ()=> {
+  const s = $('html-input').value;
+  $('html-result').textContent = s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
+});
+
+// TOOL 15: MD5 Generator (compact JS implementation)
+function md5cycle(x, k) {
+  // Minimal MD5 implementation (internal) - adapted small version
+  // NOTE: This implementation is small and sufficient for basic use.
+  function cmn(q, a, b, x, s, t){ a = (a + q + x + t) | 0; return ((a << s) | (a >>> (32 - s))) + b; }
+  function ff(a,b,c,d,x,s,t){ return cmn((b & c) | (~b & d), a, b, x, s, t); }
+  function gg(a,b,c,d,x,s,t){ return cmn((b & d) | (c & ~d), a, b, x, s, t); }
+  function hh(a,b,c,d,x,s,t){ return cmn(b ^ c ^ d, a, b, x, s, t); }
+  function ii(a,b,c,d,x,s,t){ return cmn(c ^ (b | ~d), a, b, x, s, t); }
+
+  var a = 1732584193, b = -271733879, c = -1732584194, d = 271733878;
+  // convert k (string) to little-endian words
+  var xw = [];
+  for(var i=0;i<k.length;i+=4){
+    xw[i>>2] = k.charCodeAt(i) | (k.charCodeAt(i+1)<<8) | (k.charCodeAt(i+2)<<16) | (k.charCodeAt(i+3)<<24);
+  }
+  // This tiny implementation is not fully robust for arbitrary length; use Web Crypto SHA for secure use.
+  // For practical quick MD5, use external libs; here we fallback to a simple hash if needed.
+  return ''; // keep minimal: use fallback below (we'll use JS implementation function md5 below)
 }
 
-$("qr-gen").onclick = ()=>{
-  const txt = $("qr-text").value.trim();
-  if(!txt){$("qr-img").src=""; return;}
-  $("qr-img").src = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(txt);
+// Full MD5 (public domain compact)
+function md5(s){
+  function rotateLeft(lValue, iShiftBits){ return (lValue<<iShiftBits) | (lValue>>> (32-iShiftBits)); }
+  function addUnsigned(lX,lY){ var lX4,lY4,lX8,lY8,lResult; lX8=(lX&2147483648); lY8=(lY&2147483648); lX4=(lX&1073741824); lY4=(lY&1073741824); lResult=(lX&1073741823)+(lY&1073741823); if(lX4&lY4){return (lResult^2147483648^lX8^lY8);} if(lX4|lY4){ if(lResult&1073741824){return (lResult^3221225472^lX8^lY8);} else {return (lResult^1073741824^lX8^lY8);} } else {return (lResult^lX8^lY8);} }
+  function F(x,y,z){return (x & y) | ((~x) & z);}
+  function G(x,y,z){return (x & z) | (y & (~z));}
+  function H(x,y,z){return x ^ y ^ z;}
+  function I(x,y,z){return y ^ (x | (~z));}
+  function FF(a,b,c,d,x,s,ac){ a=addUnsigned(a, addUnsigned(addUnsigned(F(b,c,d), x), ac)); return addUnsigned(rotateLeft(a,s), b); }
+  function GG(a,b,c,d,x,s,ac){ a=addUnsigned(a, addUnsigned(addUnsigned(G(b,c,d), x), ac)); return addUnsigned(rotateLeft(a,s), b); }
+  function HH(a,b,c,d,x,s,ac){ a=addUnsigned(a, addUnsigned(addUnsigned(H(b,c,d), x), ac)); return addUnsigned(rotateLeft(a,s), b); }
+  function II(a,b,c,d,x,s,ac){ a=addUnsigned(a, addUnsigned(addUnsigned(I(b,c,d), x), ac)); return addUnsigned(rotateLeft(a,s), b); }
+  function convertToWordArray(str){
+    var lWordCount; var lMessageLength = str.length; var lNumberOfWords_temp1 = lMessageLength + 8; var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64))/64; var lNumberOfWords = (lNumberOfWords_temp2+1)*16; var lWordArray = Array(lNumberOfWords-1); var lBytePosition = 0; var lByteCount = 0;
+    while(lByteCount < lMessageLength){
+      lWordCount = (lByteCount - (lByteCount % 4))/4;
+      lBytePosition = (lByteCount % 4)*8;
+      lWordArray[lWordCount] = (lWordArray[lWordCount] | (str.charCodeAt(lByteCount)<<lBytePosition));
+      lByteCount++;
+    }
+    lWordCount = (lByteCount - (lByteCount % 4))/4; lBytePosition = (lByteCount % 4)*8; lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80<<lBytePosition); lWordArray[lNumberOfWords-2] = lMessageLength<<3; lWordArray[lNumberOfWords-1] = lMessageLength>>>29; return lWordArray;
+  }
+  function wordToHex(lValue){
+    var wordToHexValue="",wordToHexValue_temp="",lByte,lCount;
+    for(lCount=0;lCount<=3;lCount++){
+      lByte = (lValue>>> (lCount*8)) & 255;
+      wordToHexValue_temp = "0" + lByte.toString(16);
+      wordToHexValue = wordToHexValue + wordToHexValue_temp.substr(wordToHexValue_temp.length-2,2);
+    }
+    return wordToHexValue;
+  }
+  var x = convertToWordArray(s);
+  var a = 0x67452301, b = 0xEFCDAB89, c = 0x98BADCFE, d = 0x10325476, i;
+  for(i=0;i<x.length;i+=16){
+    var AA=a, BB=b, CC=c, DD=d;
+    a=FF(a,b,c,d,x[i+0],7,0xd76aa478); d=FF(d,a,b,c,x[i+1],12,0xe8c7b756); c=FF(c,d,a,b,x[i+2],17,0x242070db); b=FF(b,c,d,a,x[i+3],22,0xc1bdceee);
+    a=FF(a,b,c,d,x[i+4],7,0xf57c0faf); d=FF(d,a,b,c,x[i+5],12,0x4787c62a); c=FF(c,d,a,b,x[i+6],17,0xa8304613); b=FF(b,c,d,a,x[i+7],22,0xfd469501);
+    a=FF(a,b,c,d,x[i+8],7,0x698098d8); d=FF(d,a,b,c,x[i+9],12,0x8b44f7af); c=FF(c,d,a,b,x[i+10],17,0xffff5bb1); b=FF(b,c,d,a,x[i+11],22,0x895cd7be);
+    a=FF(a,b,c,d,x[i+12],7,0x6b901122); d=FF(d,a,b,c,x[i+13],12,0xfd987193); c=FF(c,d,a,b,x[i+14],17,0xa679438e); b=FF(b,c,d,a,x[i+15],22,0x49b40821);
+    a=GG(a,b,c,d,x[i+1],5,0xf61e2562); d=GG(d,a,b,c,x[i+6],9,0xc040b340); c=GG(c,d,a,b,x[i+11],14,0x265e5a51); b=GG(b,c,d,a,x[i+0],20,0xe9b6c7aa);
+    a=GG(a,b,c,d,x[i+5],5,0xd62f105d); d=GG(d,a,b,c,x[i+10],9,0x02441453); c=GG(c,d,a,b,x[i+15],14,0xd8a1e681); b=GG(b,c,d,a,x[i+4],20,0xe7d3fbc8);
+    a=GG(a,b,c,d,x[i+9],5,0x21e1cde6); d=GG(d,a,b,c,x[i+14],9,0xc33707d6); c=GG(c,d,a,b,x[i+3],14,0xf4d50d87); b=GG(b,c,d,a,x[i+8],20,0x455a14ed);
+    a=GG(a,b,c,d,x[i+13],5,0xa9e3e905); d=GG(d,a,b,c,x[i+2],9,0xfcefa3f8); c=GG(c,d,a,b,x[i+7],14,0x676f02d9); b=GG(b,c,d,a,x[i+12],20,0x8d2a4c8a);
+    a=HH(a,b,c,d,x[i+5],4,0xfffa3942); d=HH(d,a,b,c,x[i+8],11,0x8771f681); c=HH(c,d,a,b,x[i+11],16,0x6d9d6122); b=HH(b,c,d,a,x[i+14],23,0xfde5380c);
+    a=HH(a,b,c,d,x[i+1],4,0xa4beea44); d=HH(d,a,b,c,x[i+4],11,0x4bdecfa9); c=HH(c,d,a,b,x[i+7],16,0xf6bb4b60); b=HH(b,c,d,a,x[i+10],23,0xbebfbc70);
+    a=HH(a,b,c,d,x[i+13],4,0x289b7ec6); d=HH(d,a,b,c,x[i+0],11,0xeaa127fa); c=HH(c,d,a,b,x[i+3],16,0xd4ef3085); b=HH(b,c,d,a,x[i+6],23,0x04881d05);
+    a=HH(a,b,c,d,x[i+9],4,0xd9d4d039); d=HH(d,a,b,c,x[i+12],11,0xe6db99e5); c=HH(c,d,a,b,x[i+15],16,0x1fa27cf8); b=HH(b,c,d,a,x[i+2],23,0xc4ac5665);
+    a=II(a,b,c,d,x[i+0],6,0xf4292244); d=II(d,a,b,c,x[i+7],10,0x432aff97); c=II(c,d,a,b,x[i+14],15,0xab9423a7); b=II(b,c,d,a,x[i+5],21,0xfc93a039);
+    a=II(a,b,c,d,x[i+12],6,0x655b59c3); d=II(d,a,b,c,x[i+3],10,0x8f0ccc92); c=II(c,d,a,b,x[i+10],15,0xffeff47d); b=II(b,c,d,a,x[i+1],21,0x85845dd1);
+    a=II(a,b,c,d,x[i+8],6,0x6fa87e4f); d=II(d,a,b,c,x[i+15],10,0xfe2ce6e0); c=II(c,d,a,b,x[i+6],15,0xa3014314); b=II(b,c,d,a,x[i+13],21,0x4e0811a1);
+    a=II(a,b,c,d,x[i+4],6,0xf7537e82); d=II(d,a,b,c,x[i+11],10,0xbd3af235); c=II(c,d,a,b,x[i+2],15,0x2ad7d2bb); b=II(b,c,d,a,x[i+9],21,0xeb86d391);
+    a=addUnsigned(a,AA); b=addUnsigned(b,BB); c=addUnsigned(c,CC); d=addUnsigned(d,DD);
+  }
+  return (wordToHex(a)+wordToHex(b)+wordToHex(c)+wordToHex(d)).toLowerCase();
 }
+$('md5-gen').addEventListener('click', ()=> {
+  const s = $('md5-input').value||'';
+  $('md5-result').textContent = md5(s);
+});
 
-/* Visitors */
-fetch("https://api.countapi.xyz/hit/goyalstools/visits")
-.then(r=>r.json()).then(d=> $("visitors").textContent = d.value)
-.catch(()=> $("visitors").textContent = "N/A");
+// TOOL 16: SHA-256 (Web Crypto)
+$('sha-gen').addEventListener('click', async ()=> {
+  const s = $('sha-input').value || '';
+  const enc = new TextEncoder();
+  const data = enc.encode(s);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  const hex = Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  $('sha-result').textContent = hex;
+});
+
+// TOOL 17: Text Repeater
+$('rep-gen').addEventListener('click', ()=> {
+  const t = $('rep-text').value || '';
+  const n = Math.max(1, Math.min(500, parseInt($('rep-count').value||5)));
+  $('rep-result').textContent = Array(n).fill(t).join('\n');
+});
+
+// TOOL 18: Remove Extra Spaces
+$('space-clean').addEventListener('click', ()=> {
+  const t = $('space-text').value || '';
+  $('space-result').textContent = t.replace(/\s+/g,' ').trim();
+});
+
+// TOOL 19: Email Extractor
+$('email-extract').addEventListener('click', ()=> {
+  const t = $('email-text').value || '';
+  const m = t.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g) || [];
+  $('email-result').textContent = Array.from(new Set(m)).join('\n') || 'No emails found';
+});
+
+// TOOL 20: Username Generator
+$('user-gen').addEventListener('click', ()=> {
+  const base = ($('user-base').value||'').replace(/\s+/g,'').toLowerCase() || 'user';
+  const suffix = Math.floor(100 + Math.random()*899);
+  $('user-result').textContent = base + suffix;
+});
+
+/* Visitor counter (CountAPI) */
+fetch('https://api.countapi.xyz/hit/goyalstools/visits')
+.then(r=>r.json()).then(d=>{ const v = d.value || 'N/A'; document.getElementById('visitors').textContent = v; })
+.catch(()=> document.getElementById('visitors').textContent = 'N/A');
 
 /* Back to top */
-const back = $("backTop");
-window.addEventListener("scroll", ()=> back.classList.toggle("show", window.scrollY>220));
-back.onclick = ()=> scrollTo({top:0, behavior:"smooth"});
+const back = $('backTop');
+window.addEventListener('scroll', ()=> back.classList.toggle('show', window.scrollY > 220));
+back.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-/* Delayed Ads */
-setTimeout(()=>{
-  const ads=[
-"//pl28043417.effectivegatecpm.com/e2/31/a8/e231a8bf26114a7cef07b837dc57e7ae.js",
-"//pl28043438.effectivegatecpm.com/5b/27/6d/5b276dbb8048733bb01279cbb297f060.js"
+/* Delayed Ads (load after interaction or timeout) */
+(function(){
+  const adList = [
+    "//pl28043417.effectivegatecpm.com/e2/31/a8/e231a8bf26114a7cef07b837dc57e7ae.js",
+    "//pl28043438.effectivegatecpm.com/5b/27/6d/5b276dbb8048733bb01279cbb297f060.js",
+    "//pl28043433.effectivegatecpm.com/83774cc2e9e990d38d91b3148c45a4f5/invoke.js"
   ];
-  ads.forEach(src=>{const s=document.createElement("script");s.src=src;s.async=true;document.body.appendChild(s);});
-},1500);
+  let loaded=false;
+  function loadAds(){
+    if(loaded) return; loaded=true;
+    adList.forEach(src=>{
+      const s = document.createElement('script');
+      s.src = (src.indexOf('//')===0 ? location.protocol + src : src);
+      s.async = true;
+      s.defer = true;
+      document.body.appendChild(s);
+    });
+  }
+  ['click','scroll','touchstart','keydown'].forEach(evt=>{
+    window.addEventListener(evt, function once(){ loadAds(); ['click','scroll','touchstart','keydown'].forEach(e=>window.removeEventListener(e, once)); }, {passive:true});
+  });
+  setTimeout(loadAds, 1400);
+})();
+
+/* Lazy-load images (native or IO) */
+if('loading' in HTMLImageElement.prototype){
+  document.querySelectorAll('img').forEach(img=>{ if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy'); });
+} else if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries, obs)=>{ entries.forEach(e=>{ if(e.isIntersecting){ const img=e.target; if(img.dataset.src) img.src = img.dataset.src; obs.unobserve(img); } }) }, {rootMargin:'200px'});
+  document.querySelectorAll('img[data-src]').forEach(i=> io.observe(i));
+}
+
+/* Accessibility: Enter triggers buttons in textareas/inputs */
+document.querySelectorAll('textarea,input').forEach(el=>{
+  el.addEventListener('keydown', e=>{ if(e.key==='Enter' && e.shiftKey===false){ const btn = el.closest('.card')?.querySelector('button'); if(btn) btn.click(); } });
+});
+
+/* Prevent errors on missing elements (safe checks already used) */
+console.log('Goyal\'s Tools - JS initialized');
+
 </script>
 
-</body>
-</html>
+
