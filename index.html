@@ -3,539 +3,701 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Goyal's Tools — AI + 20 Tools</title>
+  <meta name="description" content="Goyal's Tools — 20 web utilities + 15 AI tools. Fast, clean & safe." />
+  <meta name="keywords" content="Goyals Tools, online tools, AI tools, summarizer, paraphraser, qr generator, encoder, converter" />
+  <meta property="og:title" content="Goyal's Tools — Free Online Utilities + AI" />
+  <meta property="og:description" content="20+ utilities plus 15 AI tools — Fast, Clean, Safe." />
+  <meta property="og:image" content="goyals_background_hd.webp" />
 
-  <title>Goyal's Tools — Free Online Utilities</title>
-
-  <meta name="description" content="Use 20+ smart online tools — Fast, Clean, Safe. Automate your small tasks easily — by Goyal’s.">
-  <meta name="keywords" content="online tools, goyal tools, free tools, text tools, converter, encoder, pdf tools, formatter, generator">
-
-  <!-- SEO OG Tags -->
-  <meta property="og:title" content="Goyal's Tools — Free Online Utilities">
-  <meta property="og:description" content="Use 20+ smart tools — fast and clean. Automate your small tasks easily.">
-  <meta property="og:image" content="goyals_background_hd.webp">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://deveshgoyal2070-pixel.github.io/Goyals-Tools/">
-
-  <!-- MD5 FIX (CryptoJS) -->
+  <!-- CryptoJS for MD5 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
   <style>
-    :root {
-      --accent:#60a5fa;
-      --bg:#0a0f1c;
-      --card:#101726;
-      --text:#e5edff;
-      --muted:#96a2b4;
+    :root{
+      --accent:#60a5fa; --bg:#0a0f1c; --card:#101726; --text:#e5edff; --muted:#96a2b4;
     }
-    [data-theme='light']{
-      --bg:#f2f4f8;
-      --card:#ffffff;
-      --text:#0e1623;
-      --muted:#4c5566;
-      --accent:#2563eb;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    [data-theme='light']{ --bg:#f2f4f8; --card:#ffffff; --text:#0e1623; --muted:#4c5566; --accent:#2563eb; }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter, system-ui, -apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;}
+    html,body{height:100%;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      -webkit-font-smoothing:antialiased;
-    }
+    /* Animated background */
+    body::before{content:"";position:fixed;inset:0;z-index:-3;background:url("goyals_background_hd.webp") center/cover no-repeat;filter:blur(12px) brightness(0.78);}
+    body::after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(120deg, rgba(255,255,255,0.04), rgba(255,255,255,0));backdrop-filter:blur(8px);}
 
-    /* Premium Animated Background */
-    body::before {
-      content:"";
-      position:fixed;
-      inset:0;
-      background:url("goyals_background_hd.webp") center/cover no-repeat;
-      filter:blur(12px) brightness(0.75);
-      z-index:-3;
-    }
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(8px)}
+    .brand{font-weight:800;font-size:22px}
+    .sub{color:var(--muted);font-size:13px;margin-top:4px}
+    .controls{display:flex;gap:12px;align-items:center}
 
-    /* Glass Overlay */
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
-      backdrop-filter:blur(10px);
-      z-index:-2;
-    }
+    main{max-width:1150px;margin:18px auto;padding:18px;position:relative;z-index:3}
 
-    header{
-      padding:20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      backdrop-filter:blur(12px);
-      background:rgba(255,255,255,0.03);
-      border-bottom:1px solid rgba(255,255,255,0.05);
-    }
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(0,0,0,0.45);transition:transform .18s}
+    .card:hover{transform:translateY(-7px)}
+    h3{font-size:16px;margin-bottom:10px}
+    textarea,input,select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+    .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:#042235;font-weight:700;cursor:pointer}
+    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .result{margin-top:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);white-space:pre-wrap}
 
-    .logo{font-size:26px;font-weight:700;}
-    .sub{font-size:13px;color:var(--muted)}
-
-    .controls{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-
-    select{
-      padding:8px;
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,0.06);
-      background:transparent;
-      color:var(--text);
-    }
-
-    main{
-      max-width:1100px;
-      margin:auto;
-      padding:20px;
-      z-index:3;
-      position:relative;
-    }
-
-    /* Tools Grid */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:16px;
-      margin-top:20px;
-    }
-
-    .card{
-      background:var(--card);
-      padding:14px;
-      border-radius:14px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.3);
-      border:1px solid rgba(255,255,255,0.05);
-      transition:.2s;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 50px rgba(0,0,0,0.45);
-    }
-
-    h3{margin-bottom:10px;font-size:17px;font-weight:600;}
-
-    textarea,input{
-      width:100%;
-      padding:10px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:transparent;
-      color:var(--text);
-    }
-
-    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-
-    button{
-      background:var(--accent);
-      border:0;
-      padding:8px 14px;
-      border-radius:10px;
-      font-weight:700;
-      cursor:pointer;
-      color:#042235;
-    }
-    .mutebtn{
-      background:transparent;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .result{
-      margin-top:10px;
-      background:rgba(255,255,255,0.05);
-      padding:10px;
-      border-radius:10px;
-      font-size:13px;
-    }
+    .fullwide{grid-column:1/-1}
+    @media(max-width:600px){ header{padding:12px} .grid{gap:12px} }
   </style>
 </head>
-
 <body>
-<header>
-  <div>
-    <div class="logo">Goyal's Tools</div>
-    <div class="sub">Automate your small tasks easily — clean & safe</div>
-  </div>
-
-  <div class="controls">
+  <header>
     <div>
-      <label class="sub">Theme</label><br>
-      <select id="theme-switch">
-        <option value="auto">Auto</option>
-        <option value="dark" selected>Dark</option>
-        <option value="light">Light</option>
-      </select>
+      <div class="brand">Goyal's Tools</div>
+      <div class="sub">Automate your small tasks easily — by Goyal’s (AI-enabled)</div>
     </div>
-  </div>
-</header>
+    <div class="controls">
+      <label class="sub">Theme</label>
+      <select id="theme-switch"><option value="auto">Auto</option><option value="dark" selected>Dark</option><option value="light">Light</option></select>
+    </div>
+  </header>
 
-<main>
-  <div class="grid">
+  <main>
+    <div class="grid">
 
-    <!--=========== ALL 20 TOOLS HERE (Same as your code) ===========-->
-    <!-- (मैंने ये हिस्सा नहीं हटाया क्योंकि पूरा पहले से correct है) -->
+      <!-- ======= Regular Tools (1-20) - compact version (same as before) ======= -->
+      <!-- TOOL 1 -->
+      <section class="card">
+        <h3>Text Case Converter</h3>
+        <textarea id="case-input" rows="4" placeholder="Type or paste text..."></textarea>
+        <div class="row">
+          <button id="to-upper">UPPERCASE</button>
+          <button id="to-lower" class="mutebtn">lowercase</button>
+          <button id="to-title" class="mutebtn">Title Case</button>
+        </div>
+        <div class="result" id="case-result">Result...</div>
+      </section>
 
-    <!-- TOOL 1 -->
-    <section class="card">
-      <h3>Text Case Converter</h3>
-      <textarea id="case-input" rows="5" placeholder="Type or paste text..."></textarea>
-      <div class="row">
-        <button id="to-upper">UPPERCASE</button>
-        <button id="to-lower" class="mutebtn">lowercase</button>
-        <button id="to-title" class="mutebtn">Title Case</button>
-      </div>
-      <div class="result" id="case-result">Result...</div>
-    </section>
+      <!-- TOOL 2 -->
+      <section class="card">
+        <h3>Word & Character Counter</h3>
+        <textarea id="count-input" rows="4" placeholder="Type text..."></textarea>
+        <div class="row"><button id="count-btn">Count</button><button id="count-clear" class="mutebtn">Clear</button></div>
+        <div class="result" id="count-result">Words: 0 — Characters: 0</div>
+      </section>
 
-    <!-- TOOL 2 -->
-    <section class="card">
-      <h3>Word & Character Counter</h3>
-      <textarea id="count-input" rows="5"></textarea>
-      <div class="row">
-        <button id="count-btn">Count</button>
-        <button id="count-clear" class="mutebtn">Clear</button>
-      </div>
-      <div class="result" id="count-result">Words: 0 — Characters: 0</div>
-    </section>
+      <!-- TOOL 3 -->
+      <section class="card">
+        <h3>Base64 Encode / Decode</h3>
+        <textarea id="b64-input" rows="3" placeholder="Enter text..."></textarea>
+        <div class="row"><button id="b64-enc">Encode</button><button id="b64-dec" class="mutebtn">Decode</button></div>
+        <div class="result" id="b64-result"></div>
+      </section>
 
-    <!-- TOOL 3 -->
-    <section class="card">
-      <h3>Base64 Encode / Decode</h3>
-      <textarea id="b64-input" rows="4"></textarea>
-      <div class="row">
-        <button id="b64-enc">Encode</button>
-        <button id="b64-dec" class="mutebtn">Decode</button>
-      </div>
-      <div class="result" id="b64-result"></div>
-    </section>
+      <!-- TOOL 4 -->
+      <section class="card">
+        <h3>Image → Base64</h3>
+        <input type="file" id="img-input" accept="image/*">
+        <div class="row"><button id="img-convert">Convert</button></div>
+        <div class="result" id="img-result"></div>
+      </section>
 
-    <!-- TOOL 4 -->
-    <section class="card">
-      <h3>Image to Base64</h3>
-      <input type="file" id="img-input">
-      <button id="img-convert">Convert</button>
-      <div class="result" id="img-result"></div>
-    </section>
+      <!-- TOOL 5 -->
+      <section class="card">
+        <h3>Text → PDF</h3>
+        <textarea id="pdf-input" rows="3"></textarea>
+        <div class="row"><button id="pdf-download">Download PDF</button></div>
+      </section>
 
-    <!-- TOOL 5 -->
-    <section class="card">
-      <h3>Text to PDF</h3>
-      <textarea id="pdf-input" rows="4"></textarea>
-      <button id="pdf-download">Download PDF</button>
-    </section>
+      <!-- TOOL 6 -->
+      <section class="card">
+        <h3>URL Encode / Decode</h3>
+        <textarea id="url-input" rows="3"></textarea>
+        <div class="row"><button id="url-enc">Encode</button><button id="url-dec" class="mutebtn">Decode</button></div>
+        <div class="result" id="url-result"></div>
+      </section>
 
-    <!-- TOOL 6 -->
-    <section class="card">
-      <h3>URL Encoder / Decoder</h3>
-      <textarea id="url-input" rows="4"></textarea>
-      <div class="row">
-        <button id="url-enc">Encode</button>
-        <button id="url-dec" class="mutebtn">Decode</button>
-      </div>
-      <div class="result" id="url-result"></div>
-    </section>
+      <!-- TOOL 7 -->
+      <section class="card">
+        <h3>YouTube Info Fetcher</h3>
+        <input id="yt-link" placeholder="Paste YouTube link">
+        <div class="row"><button id="yt-fetch">Fetch Info</button></div>
+        <div class="result" id="yt-result">Video details...</div>
+      </section>
 
-    <!-- TOOL 7 -->
-    <section class="card">
-      <h3>YouTube Info Fetcher</h3>
-      <input id="yt-link">
-      <button id="yt-fetch">Fetch Info</button>
-      <div class="result" id="yt-result"></div>
-    </section>
+      <!-- TOOL 8 -->
+      <section class="card">
+        <h3>QR Code Generator</h3>
+        <input id="qr-text" placeholder="Text or URL">
+        <div class="row"><button id="qr-gen">Generate</button></div>
+        <div class="result"><img id="qr-img" style="max-width:100%;border-radius:8px"></div>
+      </section>
 
-    <!-- TOOL 8 -->
-    <section class="card">
-      <h3>QR Code Generator</h3>
-      <input id="qr-text">
-      <button id="qr-gen">Generate</button>
-      <div class="result"><img id="qr-img" style="max-width:100%"></div>
-    </section>
+      <!-- TOOL 9 -->
+      <section class="card">
+        <h3>Password Generator</h3>
+        <input type="number" id="pass-len" value="16" min="4" max="64">
+        <div class="row"><button id="pass-gen">Generate</button></div>
+        <div class="result" id="pass-result">Password...</div>
+      </section>
 
-    <!-- TOOL 9 -->
-    <section class="card">
-      <h3>Password Generator</h3>
-      <input type="number" id="pass-len" value="16">
-      <button id="pass-gen">Generate</button>
-      <div class="result" id="pass-result"></div>
-    </section>
+      <!-- TOOL 10 -->
+      <section class="card">
+        <h3>Random Number Generator</h3>
+        <input id="rand-min" placeholder="Min" value="1">
+        <input id="rand-max" placeholder="Max" value="100">
+        <div class="row"><button id="rand-gen">Generate</button></div>
+        <div class="result" id="rand-result"></div>
+      </section>
 
-    <!-- TOOL 10 -->
-    <section class="card">
-      <h3>Random Number Generator</h3>
-      <input id="rand-min" value="1">
-      <input id="rand-max" value="100">
-      <button id="rand-gen">Generate</button>
-      <div class="result" id="rand-result"></div>
-    </section>
+      <!-- TOOL 11 -->
+      <section class="card">
+        <h3>Color Picker</h3>
+        <input type="color" id="col-pick">
+        <div class="result" id="col-result">Pick a color...</div>
+      </section>
 
-    <!-- TOOL 11 -->
-    <section class="card">
-      <h3>Color Picker</h3>
-      <input type="color" id="col-pick">
-      <div class="result" id="col-result"></div>
-    </section>
+      <!-- TOOL 12 -->
+      <section class="card">
+        <h3>Text Difference Checker</h3>
+        <textarea id="diff-a" rows="2" placeholder="First text"></textarea>
+        <textarea id="diff-b" rows="2" placeholder="Second text"></textarea>
+        <div class="row"><button id="diff-check">Compare</button></div>
+        <div class="result" id="diff-result"></div>
+      </section>
 
-    <!-- TOOL 12 -->
-    <section class="card">
-      <h3>Text Difference Checker</h3>
-      <textarea id="diff-a" rows="3"></textarea>
-      <textarea id="diff-b" rows="3"></textarea>
-      <button id="diff-check">Compare</button>
-      <div class="result" id="diff-result"></div>
-    </section>
+      <!-- TOOL 13 -->
+      <section class="card">
+        <h3>JSON Formatter</h3>
+        <textarea id="json-input" rows="3"></textarea>
+        <div class="row"><button id="json-format">Format</button></div>
+        <div class="result" id="json-result"></div>
+      </section>
 
-    <!-- TOOL 13 -->
-    <section class="card">
-      <h3>JSON Formatter</h3>
-      <textarea id="json-input" rows="4"></textarea>
-      <button id="json-format">Format</button>
-      <div class="result" id="json-result"></div>
-    </section>
+      <!-- TOOL 14 -->
+      <section class="card">
+        <h3>HTML Encode / Decode</h3>
+        <textarea id="html-input" rows="3"></textarea>
+        <div class="row"><button id="html-encode">Encode</button><button id="html-decode" class="mutebtn">Decode</button></div>
+        <div class="result" id="html-result"></div>
+      </section>
 
-    <!-- TOOL 14 -->
-    <section class="card">
-      <h3>HTML Encoder / Decoder</h3>
-      <textarea id="html-input" rows="4"></textarea>
-      <div class="row">
-        <button id="html-encode">Encode</button>
-        <button id="html-decode" class="mutebtn">Decode</button>
-      </div>
-      <div class="result" id="html-result"></div>
-    </section>
+      <!-- TOOL 15 -->
+      <section class="card">
+        <h3>MD5 Hash</h3>
+        <textarea id="md5-input" rows="2" placeholder="Enter text"></textarea>
+        <div class="row"><button id="md5-gen">Generate</button></div>
+        <div class="result" id="md5-result"></div>
+      </section>
 
-    <!-- TOOL 15 -->
-    <section class="card">
-      <h3>MD5 Hash Generator</h3>
-      <textarea id="md5-input" rows="3"></textarea>
-      <button id="md5-gen">Generate</button>
-      <div class="result" id="md5-result"></div>
-    </section>
+      <!-- TOOL 16 -->
+      <section class="card">
+        <h3>SHA-256</h3>
+        <textarea id="sha-input" rows="2"></textarea>
+        <div class="row"><button id="sha-gen">Generate</button></div>
+        <div class="result" id="sha-result"></div>
+      </section>
 
-    <!-- TOOL 16 -->
-    <section class="card">
-      <h3>SHA-256 Generator</h3>
-      <textarea id="sha-input" rows="3"></textarea>
-      <button id="sha-gen">Generate</button>
-      <div class="result" id="sha-result"></div>
-    </section>
+      <!-- TOOL 17 -->
+      <section class="card">
+        <h3>Text Repeater</h3>
+        <textarea id="rep-text" rows="2"></textarea>
+        <input type="number" id="rep-count" value="5" min="1" max="500">
+        <div class="row"><button id="rep-gen">Repeat</button></div>
+        <div class="result" id="rep-result"></div>
+      </section>
 
-    <!-- TOOL 17 -->
-    <section class="card">
-      <h3>Text Repeater</h3>
-      <textarea id="rep-text" rows="3"></textarea>
-      <input type="number" id="rep-count" value="5">
-      <button id="rep-gen">Repeat</button>
-      <div class="result" id="rep-result"></div>
-    </section>
+      <!-- TOOL 18 -->
+      <section class="card">
+        <h3>Remove Extra Spaces</h3>
+        <textarea id="space-text" rows="3"></textarea>
+        <div class="row"><button id="space-clean">Clean</button></div>
+        <div class="result" id="space-result"></div>
+      </section>
 
-    <!-- TOOL 18 -->
-    <section class="card">
-      <h3>Remove Extra Spaces</h3>
-      <textarea id="space-text" rows="4"></textarea>
-      <button id="space-clean">Clean</button>
-      <div class="result" id="space-result"></div>
-    </section>
+      <!-- TOOL 19 -->
+      <section class="card">
+        <h3>Email Extractor</h3>
+        <textarea id="email-text" rows="3"></textarea>
+        <div class="row"><button id="email-extract">Extract</button></div>
+        <div class="result" id="email-result"></div>
+      </section>
 
-    <!-- TOOL 19 -->
-    <section class="card">
-      <h3>Email Extractor</h3>
-      <textarea id="email-text" rows="4"></textarea>
-      <button id="email-extract">Extract</button>
-      <div class="result" id="email-result"></div>
-    </section>
+      <!-- TOOL 20 -->
+      <section class="card">
+        <h3>Username Generator</h3>
+        <input id="user-base" placeholder="Base word (optional)">
+        <div class="row"><button id="user-gen">Generate</button></div>
+        <div class="result" id="user-result"></div>
+      </section>
 
-    <!-- TOOL 20 -->
-    <section class="card">
-      <h3>Username Generator</h3>
-      <input id="user-base">
-      <button id="user-gen">Generate</button>
-      <div class="result" id="user-result"></div>
-    </section>
+      <!-- ======== AI Tools Section (full-width) ======== -->
+      <div class="fullwide"><h2 style="color:var(--muted);margin:10px 0">AI Powered Tools (15)</h2></div>
 
-  </div>
+      <!-- AI Tool 1: Chatbot -->
+      <section class="card">
+        <h3>AI Chatbot (Hindi)</h3>
+        <textarea id="ai-chat-input" rows="3" placeholder="Type message..."></textarea>
+        <div class="row"><button id="ai-chat-send">Send</button><button id="ai-chat-clear" class="mutebtn">Clear</button></div>
+        <div class="result" id="ai-chat-result">Conversation...</div>
+      </section>
 
-  <div style="text-align:center;margin-top:30px;color:var(--muted);font-size:14px;">
-    Visitors: <span id="visitors">Loading...</span><br>
-    © 2025 Goyal's Tools — Clean & Safe
-  </div>
+      <!-- AI Tool 2: Summarizer -->
+      <section class="card">
+        <h3>Text Summarizer</h3>
+        <textarea id="ai-sum-input" rows="4" placeholder="Paste long text..."></textarea>
+        <div class="row"><button id="ai-sum-btn">Summarize</button></div>
+        <div class="result" id="ai-sum-result"></div>
+      </section>
 
-</main>
+      <!-- AI Tool 3: Paraphraser -->
+      <section class="card">
+        <h3>Paraphraser / Rewriter</h3>
+        <textarea id="ai-par-input" rows="3" placeholder="Text to paraphrase..."></textarea>
+        <div class="row"><button id="ai-par-btn">Paraphrase</button></div>
+        <div class="result" id="ai-par-result"></div>
+      </section>
 
-<button id="backTop" style="
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  background:var(--accent);
-  border:0;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  font-size:20px;
-  cursor:pointer;
-  display:none;
-">↑</button>
+      <!-- AI Tool 4: Essay -->
+      <section class="card">
+        <h3>Essay Writer</h3>
+        <input id="ai-essay-topic" placeholder="Topic (eg: Importance of AI)">
+        <div class="row"><button id="ai-essay-outline">Outline</button><button id="ai-essay-expand" class="mutebtn">Full Essay</button></div>
+        <div class="result" id="ai-essay-result"></div>
+      </section>
 
-<!-- FINAL JAVASCRIPT -->
-<script>
-const $ = id => document.getElementById(id);
+      <!-- AI Tool 5: Email Writer -->
+      <section class="card">
+        <h3>Email Writer</h3>
+        <input id="ai-email-tone" placeholder="Tone (formal/informal)">
+        <textarea id="ai-email-input" rows="2" placeholder="Purpose / key points"></textarea>
+        <div class="row"><button id="ai-email-btn">Write Email</button></div>
+        <div class="result" id="ai-email-result"></div>
+      </section>
 
-/* Theme */
-(function(){
-  const s = $('theme-switch');
-  const saved = localStorage.getItem("gt_theme") || "dark";
-  s.value = saved;
-  function apply(v){
-    if(v==="auto"){
-      const d = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.setAttribute("data-theme", d ? "dark" : "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", v);
+      <!-- AI Tool 6: YT Script -->
+      <section class="card">
+        <h3>YouTube Script Writer</h3>
+        <input id="ai-yt-topic" placeholder="Video topic">
+        <div class="row"><button id="ai-yt-btn">Generate Script</button></div>
+        <div class="result" id="ai-yt-result"></div>
+      </section>
+
+      <!-- AI Tool 7: Blog Post -->
+      <section class="card">
+        <h3>Blog Post Writer (SEO)</h3>
+        <input id="ai-blog-topic" placeholder="Blog topic">
+        <div class="row"><button id="ai-blog-btn">Write Blog</button></div>
+        <div class="result" id="ai-blog-result"></div>
+      </section>
+
+      <!-- AI Tool 8: Product Description -->
+      <section class="card">
+        <h3>Product Description</h3>
+        <input id="ai-prod-name" placeholder="Product name">
+        <div class="row"><button id="ai-prod-btn">Create</button></div>
+        <div class="result" id="ai-prod-result"></div>
+      </section>
+
+      <!-- AI Tool 9: Ad Copy -->
+      <section class="card">
+        <h3>Ad Copy Generator</h3>
+        <input id="ai-ad-topic" placeholder="Offer / USP">
+        <div class="row"><button id="ai-ad-btn">Generate Ads</button></div>
+        <div class="result" id="ai-ad-result"></div>
+      </section>
+
+      <!-- AI Tool 10: Hashtags -->
+      <section class="card">
+        <h3>Hashtag Generator</h3>
+        <input id="ai-hashtag-topic" placeholder="Topic / niche">
+        <div class="row"><button id="ai-hashtag-btn">Get Hashtags</button></div>
+        <div class="result" id="ai-hashtag-result"></div>
+      </section>
+
+      <!-- AI Tool 11: Image Prompt -->
+      <section class="card">
+        <h3>Image Prompt Generator</h3>
+        <input id="ai-prompt-topic" placeholder="Theme / style">
+        <div class="row"><button id="ai-prompt-btn">Create Prompts</button></div>
+        <div class="result" id="ai-prompt-result"></div>
+      </section>
+
+      <!-- AI Tool 12: Keyword Generator -->
+      <section class="card">
+        <h3>SEO Keyword Generator</h3>
+        <input id="ai-keyword-topic" placeholder="Seed keyword">
+        <div class="row"><button id="ai-keyword-btn">Generate</button></div>
+        <div class="result" id="ai-keyword-result"></div>
+      </section>
+
+      <!-- AI Tool 13: Meta Description -->
+      <section class="card">
+        <h3>Meta Description Generator</h3>
+        <input id="ai-meta-topic" placeholder="Page topic / title">
+        <div class="row"><button id="ai-meta-btn">Create Meta</button></div>
+        <div class="result" id="ai-meta-result"></div>
+      </section>
+
+      <!-- AI Tool 14: Code Explainer -->
+      <section class="card">
+        <h3>Code Explainer (Hindi)</h3>
+        <textarea id="ai-code-input" rows="4" placeholder="Paste code..."></textarea>
+        <div class="row"><button id="ai-code-btn">Explain</button></div>
+        <div class="result" id="ai-code-result"></div>
+      </section>
+
+      <!-- AI Tool 15: Translator -->
+      <section class="card">
+        <h3>Translator</h3>
+        <select id="ai-trans-lang">
+          <option value="hi">Hindi</option><option value="en">English</option><option value="mr">Marathi</option><option value="bn">Bengali</option>
+        </select>
+        <textarea id="ai-trans-input" rows="3" placeholder="Text to translate"></textarea>
+        <div class="row"><button id="ai-trans-btn">Translate</button></div>
+        <div class="result" id="ai-trans-result"></div>
+      </section>
+
+    </div> <!-- grid -->
+
+    <div style="text-align:center;margin-top:24px;color:var(--muted);font-size:14px">
+      Visitors: <span id="visitors">Loading...</span> — © 2025 Goyal's Tools
+    </div>
+
+  </main>
+
+  <button id="backTop" style="position:fixed;right:24px;bottom:28px;width:48px;height:48px;border-radius:50%;background:var(--accent);border:0;color:#042235;font-weight:800;display:none">↑</button>
+
+  <!-- ========================= JS ========================= -->
+  <script>
+    // QUICK CONFIG
+    const WORKER_URL = "https://goyal-ai-proxy.deveshgoyal-2070.workers.dev"; // <-- YOUR CLOUDFLARE WORKER (already set)
+    const DEFAULT_MODEL = "llama3-8b"; // change in Groq if needed
+    const AI_TIMEOUT_MS = 45000;
+
+    // helper $
+    const $ = id => document.getElementById(id);
+
+    /* THEME */
+    (function(){
+      const sel = $('theme-switch');
+      const saved = localStorage.getItem('gt_theme') || 'dark';
+      sel.value = saved;
+      function apply(v){
+        if(v==='auto'){ const d = window.matchMedia('(prefers-color-scheme: dark)').matches; document.documentElement.setAttribute('data-theme', d? 'dark':'light'); }
+        else document.documentElement.setAttribute('data-theme', v);
+        localStorage.setItem('gt_theme', v);
+      }
+      apply(saved);
+      sel.addEventListener('change', ()=> apply(sel.value));
+    })();
+
+    /* VISITOR COUNTER */
+    fetch('https://api.countapi.xyz/hit/goyalstools/cleanvisits').then(r=>r.json()).then(d=> $('visitors').textContent = d.value).catch(()=> $('visitors').textContent = 'N/A');
+
+    /* BACK TO TOP */
+    const back = $('backTop');
+    window.addEventListener('scroll', ()=> back.style.display = window.scrollY>200 ? 'block':'none');
+    back.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+    /* ------------------ REGULAR TOOLS JS ------------------ */
+    $('to-upper').onclick = ()=> $('case-result').textContent = $('case-input').value.toUpperCase();
+    $('to-lower').onclick = ()=> $('case-result').textContent = $('case-input').value.toLowerCase();
+    $('to-title').onclick = ()=> $('case-result').textContent = $('case-input').value.replace(/\w\S*/g, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
+
+    $('count-btn').onclick = ()=> {
+      const t = $('count-input').value.trim();
+      $('count-result').textContent = `Words: ${t.split(/\s+/).filter(Boolean).length} — Characters: ${t.length}`;
+    };
+    $('count-clear').onclick = ()=> { $('count-input').value=''; $('count-result').textContent='Words: 0 — Characters: 0'; };
+
+    $('b64-enc').onclick = ()=> { try { $('b64-result').textContent = btoa($('b64-input').value); } catch(e){ $('b64-result').textContent='Error'; } };
+    $('b64-dec').onclick = ()=> { try{ $('b64-result').textContent = atob($('b64-input').value); }catch(e){ $('b64-result').textContent='Invalid Base64'; } };
+
+    $('img-convert').onclick = ()=>{
+      const f = $('img-input').files[0]; if(!f){alert('Select image'); return;}
+      const r = new FileReader(); r.onload = ()=> $('img-result').textContent = r.result; r.readAsDataURL(f);
+    };
+
+    $('pdf-download').onclick = ()=>{
+      const txt = $('pdf-input').value || ''; const blob = new Blob([txt], {type:'application/pdf'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='text.pdf'; a.click();
+    };
+
+    $('url-enc').onclick = ()=> $('url-result').textContent = encodeURIComponent($('url-input').value);
+    $('url-dec').onclick = ()=> { try{ $('url-result').textContent = decodeURIComponent($('url-input').value); }catch(e){ $('url-result').textContent='Invalid'; } };
+
+    $('yt-fetch').onclick = ()=>{
+      const link = $('yt-link').value.trim(); const m = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      if(!m) return $('yt-result').textContent='Invalid URL';
+      const id = m[1]; $('yt-result').innerHTML = `<img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" style="max-width:100%;border-radius:8px"><div><a href="https://youtu.be/${id}" target="_blank">Open Video</a></div><small>Video ID: ${id}</small>`;
+    };
+
+    $('qr-gen').onclick = ()=> { const t = $('qr-text').value.trim(); if(!t) return alert('Enter text'); $('qr-img').src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(t); };
+
+    $('pass-gen').onclick = ()=>{
+      let len = Math.max(4, Math.min(64, parseInt($('pass-len').value || 16))); let chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
+      let out=''; for(let i=0;i<len;i++) out += chars[Math.floor(Math.random()*chars.length)]; $('pass-result').textContent = out;
+    };
+
+    $('rand-gen').onclick = ()=> {
+      const min = parseInt($('rand-min').value||1), max = parseInt($('rand-max').value||100);
+      if(max < min) return alert('Invalid range'); $('rand-result').textContent = Math.floor(Math.random()*(max-min+1))+min;
+    };
+
+    $('col-pick').oninput = function(){ $('col-result').textContent = this.value; };
+
+    $('diff-check').onclick = ()=>{
+      const A = $('diff-a').value.split('\n'), B = $('diff-b').value.split('\n'); const onlyA = A.filter(x=>x && !B.includes(x)), onlyB = B.filter(x=>x && !A.includes(x));
+      $('diff-result').textContent = `Only in A: ${onlyA.length}\nOnly in B: ${onlyB.length}\n\nA not in B:\n${onlyA.join('\n')}`;
+    };
+
+    $('json-format').onclick = ()=> { try{ $('json-result').textContent = JSON.stringify(JSON.parse($('json-input').value), null, 2);}catch(e){ $('json-result').textContent='Invalid JSON'; } };
+
+    $('html-encode').onclick = ()=> $('html-result').textContent = $('html-input').value.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    $('html-decode').onclick = ()=> $('html-result').textContent = $('html-input').value.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&quot;/g,'"');
+
+    $('md5-gen').onclick = ()=> { $('md5-result').textContent = CryptoJS.MD5($('md5-input').value).toString(); };
+
+    $('sha-gen').onclick = async ()=> {
+      const data = new TextEncoder().encode($('sha-input').value); const hash = await crypto.subtle.digest('SHA-256', data);
+      $('sha-result').textContent = Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    };
+
+    $('rep-gen').onclick = ()=> { const n = Math.max(1, Math.min(500, parseInt($('rep-count').value||5))); $('rep-result').textContent = Array(n).fill($('rep-text').value).join('\n'); };
+
+    $('space-clean').onclick = ()=> $('space-result').textContent = $('space-text').value.replace(/\s+/g,' ').trim();
+
+    $('email-extract').onclick = ()=> { const m = ($('email-text').value.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}/g)||[]); $('email-result').textContent = [...new Set(m)].join('\n') || 'No emails found'; };
+
+    $('user-gen').onclick = ()=> { const base = ($('user-base').value||'user').replace(/\s+/g,'').toLowerCase(); $('user-result').textContent = base + Math.floor(100 + Math.random()*900); };
+
+    /* ------------------ AI: callAI wrapper ------------------ */
+    async function callAI(payload){
+      // payload must be OpenAI-compatible with messages[]
+      const controller = new AbortController();
+      const timer = setTimeout(()=> controller.abort(), AI_TIMEOUT_MS);
+      try {
+        const resp = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        clearTimeout(timer);
+        if(!resp.ok){
+          const txt = await resp.text();
+          throw new Error('Worker error: '+ (txt || resp.status));
+        }
+        const j = await resp.json();
+        // Try common response shapes
+        const text = (j.choices && j.choices[0] && (j.choices[0].message?.content || j.choices[0].text)) || j.output || j.result || JSON.stringify(j);
+        return text;
+      } catch (err) {
+        clearTimeout(timer);
+        console.error('callAI error', err);
+        throw err;
+      }
     }
-    localStorage.setItem("gt_theme", v);
-  }
-  apply(saved);
-  s.onchange = ()=> apply(s.value);
-})();
 
-/* Tool Functions */
+    function sysHindi(note="You are a helpful assistant that replies in Hindi and concise tone.") { return {role:'system', content: note}; }
 
-$('to-upper').onclick = ()=> $('case-result').textContent = $('case-input').value.toUpperCase();
-$('to-lower').onclick = ()=> $('case-result').textContent = $('case-input').value.toLowerCase();
-$('to-title').onclick = ()=> $('case-result').textContent =
-  $('case-input').value.replace(/\w\S*/g, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
+    function busyBtn(el, busy=true){ if(!el) return; el.disabled = busy; el.style.opacity = busy ? 0.6 : 1; }
 
-$('count-btn').onclick = ()=>{
-  let t = $('count-input').value.trim();
-  $('count-result').textContent = `Words: ${t.split(/\s+/).filter(a=>a).length} — Characters: ${t.length}`;
-};
-$('count-clear').onclick = ()=> {$('count-input').value="";$('count-result').textContent="Words: 0 — Characters: 0";};
+    /* ------------------ AI TOOL HANDLERS ------------------ */
 
-$('b64-enc').onclick = ()=> $('b64-result').textContent = btoa($('b64-input').value);
-$('b64-dec').onclick = ()=> {
-  try{$('b64-result').textContent = atob($('b64-input').value);}
-  catch(e){$('b64-result').textContent="Invalid Base64";}
-};
+    // Chat
+    $('ai-chat-send').addEventListener('click', async function(){
+      const btn=this; const txt=$('ai-chat-input').value.trim(); const out=$('ai-chat-result');
+      if(!txt) return alert('Type a message');
+      busyBtn(btn,true); out.textContent='Thinking...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: txt} ], temperature:0.25, max_output_tokens:400 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent = 'Error: '+e.message; }
+      busyBtn(btn,false);
+    });
+    $('ai-chat-clear').addEventListener('click', ()=> { $('ai-chat-input').value=''; $('ai-chat-result').textContent=''; });
 
-$('img-convert').onclick = ()=>{
-  const f = $('img-input').files[0];
-  if(!f){alert("Select image");return;}
-  const r = new FileReader();
-  r.onload = ()=> $('img-result').textContent = r.result;
-  r.readAsDataURL(f);
-};
+    // Summarizer
+    $('ai-sum-btn').addEventListener('click', async function(){
+      const btn=this; const txt=$('ai-sum-input').value.trim(); const out=$('ai-sum-result');
+      if(!txt) return alert('Enter text');
+      busyBtn(btn,true); out.textContent='Working...';
+      try{
+        const prompt = `Summarize the following in 3 concise bullet points in Hindi:\n\n${txt}`;
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are a concise Hindi summarizer.'), {role:'user', content: prompt} ], temperature:0.15, max_output_tokens:300 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error: '+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('pdf-download').onclick = ()=>{
-  const t = $('pdf-input').value;
-  const blob = new Blob([t],{type:"application/pdf"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download="text.pdf";a.click();
-};
+    // Paraphraser
+    $('ai-par-btn').addEventListener('click', async function(){
+      const btn=this; const txt=$('ai-par-input').value.trim(); const out=$('ai-par-result');
+      if(!txt) return alert('Enter text');
+      busyBtn(btn,true); out.textContent='Working...';
+      try{
+        const prompt = `Rewrite the following text in Hindi with simpler vocabulary, preserving meaning:\n\n${txt}`;
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: prompt} ], temperature:0.25, max_output_tokens:300 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error: '+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('url-enc').onclick = ()=> $('url-result').textContent = encodeURIComponent($('url-input').value);
-$('url-dec').onclick = ()=> {
-  try{$('url-result').textContent = decodeURIComponent($('url-input').value);}
-  catch(e){$('url-result').textContent="Invalid";}
-};
+    // Essay - outline & expand
+    $('ai-essay-outline').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-essay-topic').value.trim(); const out=$('ai-essay-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Creating outline...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are an essay writer in Hindi.'), {role:'user', content: `Create a 7-point outline in Hindi for essay: ${topic}`} ], temperature:0.2, max_output_tokens:300 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
+    $('ai-essay-expand').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-essay-topic').value.trim(); const out=$('ai-essay-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Expanding...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are a professional Hindi essay writer.'), {role:'user', content: `Write an 800-1000 word essay in Hindi about: ${topic}. Use headings and short paragraphs.`} ], temperature:0.2, max_output_tokens:1200 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('yt-fetch').onclick = ()=>{
-  let link = $('yt-link').value;
-  let m = link.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  if(!m){$('yt-result').textContent="Invalid URL";return;}
-  let id = m[1];
-  $('yt-result').innerHTML = `
-    <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" style="max-width:100%;border-radius:8px">
-    <a href="https://youtu.be/${id}" target="_blank">Open Video</a><br>
-    <small>Video ID: ${id}</small>
-  `;
-};
+    // Email Writer
+    $('ai-email-btn').addEventListener('click', async function(){
+      const btn=this; const tone=$('ai-email-tone').value.trim()||'formal'; const points=$('ai-email-input').value.trim(); const out=$('ai-email-result');
+      if(!points) return alert('Enter purpose');
+      busyBtn(btn,true); out.textContent='Writing...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are a professional email writer in Hindi.'), {role:'user', content: `Write a ${tone} email in Hindi using these points: ${points}. Include subject and 2-line signature.`} ], temperature:0.2, max_output_tokens:350 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('qr-gen').onclick = ()=>{
-  let t = $('qr-text').value;
-  $('qr-img').src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(t);
-};
+    // YT Script
+    $('ai-yt-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-yt-topic').value.trim(); const out=$('ai-yt-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Generating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are a YouTube scriptwriter in Hindi.'), {role:'user', content: `Create a 4-minute YouTube script in Hindi for topic: ${topic}. Include hook, 3 main points, CTA.`} ], temperature:0.3, max_output_tokens:450 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('pass-gen').onclick = ()=>{
-  let len = parseInt($('pass-len').value)||16;
-  let chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=";
-  let out="";
-  for(let i=0;i<len;i++) out+=chars[Math.floor(Math.random()*chars.length)];
-  $('pass-result').textContent=out;
-};
+    // Blog
+    $('ai-blog-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-blog-topic').value.trim(); const out=$('ai-blog-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Writing blog...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are an SEO blog writer in Hindi.'), {role:'user', content: `Write an SEO-friendly 700-900 word blog post in Hindi about: ${topic}. Include H2 headings and a meta description.`} ], temperature:0.25, max_output_tokens:900 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('rand-gen').onclick = ()=>{
-  let min=parseInt($('rand-min').value), max=parseInt($('rand-max').value);
-  $('rand-result').textContent=Math.floor(Math.random()*(max-min+1))+min;
-};
+    // Product description
+    $('ai-prod-btn').addEventListener('click', async function(){
+      const btn=this; const name=$('ai-prod-name').value.trim(); const out=$('ai-prod-result');
+      if(!name) return alert('Enter product name');
+      busyBtn(btn,true); out.textContent='Creating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Write a short (max 80 words) product description in Hindi for: ${name}. Include 3 benefits.`} ], temperature:0.3, max_output_tokens:200 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('col-pick').oninput = ()=> $('col-result').textContent = $('col-pick').value;
+    // Ad copies
+    $('ai-ad-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-ad-topic').value.trim(); const out=$('ai-ad-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Generating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Write 3 short ad copies in Hindi (20-80 chars) for: ${topic}. Each include one benefit and CTA.`} ], temperature:0.35, max_output_tokens:250 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('diff-check').onclick = ()=>{
-  let A=$('diff-a').value.split("\n");
-  let B=$('diff-b').value.split("\n");
-  let onlyA=A.filter(x=>!B.includes(x));
-  let onlyB=B.filter(x=>!A.includes(x));
-  $('diff-result').textContent=`Only A: ${onlyA.length}\nOnly B: ${onlyB.length}\n\n${onlyA.join("\n")}`;
-};
+    // Hashtags
+    $('ai-hashtag-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-hashtag-topic').value.trim(); const out=$('ai-hashtag-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Finding...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Suggest 12 relevant hashtags (mix Hindi & English) for: ${topic}.` } ], temperature:0.4, max_output_tokens:200 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('json-format').onclick = ()=>{
-  try{ $('json-result').textContent = JSON.stringify(JSON.parse($('json-input').value),null,2); }
-  catch(e){ $('json-result').textContent="Invalid JSON"; }
-};
+    // Image prompts
+    $('ai-prompt-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-prompt-topic').value.trim(); const out=$('ai-prompt-result');
+      if(!topic) return alert('Enter theme');
+      busyBtn(btn,true); out.textContent='Creating prompts...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are an English prompt generator for AI image models.'), {role:'user', content: `Create 5 short English prompts (one line each) for AI image generation about: ${topic}. Include style and mood.` } ], temperature:0.6, max_output_tokens:250 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('html-encode').onclick = ()=>{
-  $('html-result').textContent =
-    $('html-input').value.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-};
-$('html-decode').onclick = ()=>{
-  $('html-result').textContent =
-    $('html-input').value.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&").replace(/&quot;/g,'"');
-};
+    // Keyword generator
+    $('ai-keyword-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-keyword-topic').value.trim(); const out=$('ai-keyword-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Generating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Provide 15 SEO keywords/phrases with intent (informational/commercial) for: ${topic}` } ], temperature:0.2, max_output_tokens:300 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-/* FIXED MD5 USING CryptoJS */
-$('md5-gen').onclick = ()=>{
-  $('md5-result').textContent = CryptoJS.MD5($('md5-input').value).toString();
-};
+    // Meta description
+    $('ai-meta-btn').addEventListener('click', async function(){
+      const btn=this; const topic=$('ai-meta-topic').value.trim(); const out=$('ai-meta-result');
+      if(!topic) return alert('Enter topic');
+      busyBtn(btn,true); out.textContent='Creating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Write a 155-160 character meta description in Hindi for: ${topic}` } ], temperature:0.2, max_output_tokens:80 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('sha-gen').onclick = async()=>{
-  let data=new TextEncoder().encode($('sha-input').value);
-  let h=await crypto.subtle.digest("SHA-256",data);
-  $('sha-result').textContent=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,"0")).join("");
-};
+    // Code explainer
+    $('ai-code-btn').addEventListener('click', async function(){
+      const btn=this; const code=$('ai-code-input').value.trim(); const out=$('ai-code-result');
+      if(!code) return alert('Paste code');
+      busyBtn(btn,true); out.textContent='Explaining...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi('You are a code explainer who writes in Hindi.'), {role:'user', content: `Explain the following code in Hindi, line-by-line, and give a short summary:\n\n${code}` } ], temperature:0.1, max_output_tokens:600 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('rep-gen').onclick = ()=>{
-  $('rep-result').textContent = Array(parseInt($('rep-count').value)||5).fill($('rep-text').value).join("\n");
-};
+    // Translate
+    $('ai-trans-btn').addEventListener('click', async function(){
+      const btn=this; const lang=$('ai-trans-lang').value; const text=$('ai-trans-input').value.trim(); const out=$('ai-trans-result');
+      if(!text) return alert('Enter text');
+      busyBtn(btn,true); out.textContent='Translating...';
+      try{
+        const payload = { model: DEFAULT_MODEL, messages: [ sysHindi(), {role:'user', content: `Translate the following to ${lang} (keep tone neutral):\n\n${text}` } ], temperature:0.15, max_output_tokens:400 };
+        out.textContent = await callAI(payload);
+      }catch(e){ out.textContent='Error:'+e.message; }
+      busyBtn(btn,false);
+    });
 
-$('space-clean').onclick = ()=> $('space-result').textContent =
-  $('space-text').value.replace(/\s+/g," ").trim();
+    // simple fail-safe
+    window.addEventListener('error', e=> console.error(e));
+    window.addEventListener('unhandledrejection', e=> console.error(e.reason));
 
-$('email-extract').onclick = ()=>{
-  let emails=($('email-text').value.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}/g)||[]);
-  $('email-result').textContent = [...new Set(emails)].join("\n")||"No emails found";
-};
-
-$('user-gen').onclick = ()=>{
-  let base=($('user-base').value||"user").replace(/\s+/g,"").toLowerCase();
-  $('user-result').textContent = base + Math.floor(100+Math.random()*900);
-};
-
-fetch("https://api.countapi.xyz/hit/goyalstools/cleanvisits")
-.then(r=>r.json())
-.then(d=>$('visitors').textContent=d.value)
-.catch(()=>$('visitors').textContent="N/A");
-
-const back=$('backTop');
-window.addEventListener("scroll",()=>back.style.display = window.scrollY>200?"block":"none");
-back.onclick = ()=> window.scrollTo({top:0,behavior:"smooth"});
-</script>
-
+  </script>
 </body>
 </html>
